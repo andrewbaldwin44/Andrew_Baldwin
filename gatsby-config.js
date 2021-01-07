@@ -18,6 +18,17 @@ module.exports = {
     'gatsby-plugin-resolve-src',
     'gatsby-plugin-sass',
     {
+      resolve: 'gatsby-plugin-typescript',
+      options: {
+        transpileOnly: true,
+        compilerOptions: {
+          target: 'es5',
+          experimentalDecorators: true,
+          jsx: 'react',
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'andrew-baldwin',

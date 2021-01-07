@@ -1,12 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
+interface IMeta {
+  content: string;
+  name?: string;
+  property?: string;
+}
+
 interface ISEO {
-  description: string;
-  lang: string;
-  meta: object[];
+  description?: string;
+  lang?: string;
+  meta?: IMeta[];
   title: string;
 }
 
@@ -68,9 +73,9 @@ function SEO({ description = '', lang = 'en', meta = [], title }: ISEO) {
         },
       ].concat(meta)}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
     />
   );
-};
+}
 
 export default SEO;

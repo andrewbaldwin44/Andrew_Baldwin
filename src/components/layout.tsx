@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from './header';
+import Header from 'components/header/header.component';
 
 interface ILayout {
-  children: React.Node;
-};
+  children: React.ReactElement[];
+}
 
 const Layout = ({ children }: ILayout) => {
   const data = useStaticQuery(graphql`

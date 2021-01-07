@@ -8,38 +8,38 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "prettier/@typescript-eslint",
+    "prettier/@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-        "jsx": true
+      "jsx": true
     },
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react", "@typescript-eslint"],
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": ["node_modules", "src"]
+        "moduleDirectory": ["node_modules", "src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
-  rules: {
+  "rules": {
     "react/jsx-sort-props": 2,
     "react/sort-prop-types": 2,
+    "react/require-default-props": "off",
     "no-use-before-define": 0,
-    'react/jsx-filename-extension': [
+    "react/jsx-filename-extension": [
       2,
       {
-        'extensions': ['.jsx', '.tsx'],
-      },
+        "extensions": [".jsx", ".tsx"]
+      }
     ],
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 }
