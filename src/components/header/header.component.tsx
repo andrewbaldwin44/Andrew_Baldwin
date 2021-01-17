@@ -21,16 +21,16 @@ const Header = () => {
         <HamburgerMenu className='c-nav__mobile-menu' onClick={() => setIsMenuOpen(!isMenuOpen)} />
         <ul className='nav-links'>
           <li>
-            <Link to='/about'>About</Link>
+            <Link to='/'>About</Link>
           </li>
           <li>
-            <Link to='/about'>Projects</Link>
+            <Link to='/projects'>Projects</Link>
           </li>
           <li>
-            <Link to='/about'>Testimonials</Link>
+            <Link to='/testimonials'>Testimonials</Link>
           </li>
           <li>
-            <Link to='/about'>Contact</Link>
+            <Link to='/contact'>Contact</Link>
           </li>
         </ul>
       </nav>
