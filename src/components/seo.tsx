@@ -3,9 +3,11 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 interface IMeta {
+  author: string;
   content: string;
-  name?: string;
-  property?: string;
+  description: string;
+  property: string;
+  title: string;
 }
 
 interface ISEO {
@@ -31,7 +33,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: ISEO) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const defaultTitle = site.siteMetadata.title;
 
   return (
     <Helmet
@@ -61,7 +63,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: ISEO) {
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata?.author || '',
+          content: site.siteMetadata.author,
         },
         {
           name: 'twitter:title',
@@ -73,7 +75,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: ISEO) {
         },
       ].concat(meta)}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
+      titleTemplate={`${defaultTitle} | %s`}
     />
   );
 }
