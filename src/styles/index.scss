@@ -1,1 +1,7 @@
+@import "./breakpoints.scss";
+@import "./dimensions.scss";
 @import "./globals.scss";
+@import "./common-mixins";
+
+@import "../components/header/header.component.scss";
+@import "../components/layout/layout.component.scss";
