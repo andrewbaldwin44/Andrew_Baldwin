@@ -1,6 +1,5 @@
 @mixin page-dimensions {
   margin: 0 $container-margin;
-  max-width: $container-max-width;
 
   @media #{$at-bp-medium} {
     margin: 0 $container-margin-medium;

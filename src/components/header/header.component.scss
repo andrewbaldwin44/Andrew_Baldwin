@@ -1,4 +1,74 @@
 header {
-  @include page-dimensions;
-  margin-bottom: 1.45rem;
+  height: $navbar-height;
+  margin-bottom: 40px;
+  box-shadow: 0px 1px 8px #{$black-shadow};
+
+  .c-nav {
+    @include page-dimensions;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: $navbar-height;
+
+    @media #{$at-bp-medium} {
+      margin-bottom: 30px;
+    }
+
+    @media #{$at-bp-large} {
+      margin-bottom: 40px;
+    }
+  }
+
+  .c-nav.c-nav__mobile {
+    position: relative;
+
+    .nav-links {
+      position: absolute;
+
+      display: flex;
+      flex-direction: column;
+
+      top: $navbar-height;
+      width: 100%;
+      padding: 10px 0;
+      line-height: 2;
+
+      li {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  li {
+    list-style: none;
+  }
+
+  li:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  @media #{$at-bp-small} {
+    display: none;
+  }
+}
+
+.c-nav__mobile-menu {
+  display: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    fill: red;
+  }
+
+  @media #{$at-bp-small} {
+    display: block;
+  }
 }

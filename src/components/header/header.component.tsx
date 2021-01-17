@@ -1,18 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import cx from 'classnames';
 
-interface IHeader {
-  siteTitle: string;
-}
+import Image from 'components/image';
+import HamburgerMenu from 'components/hamburger-menu';
 
-const Header = ({ siteTitle = '' }: IHeader) => (
-  <header>
-    <nav>
-      <h1>
-        <Link to='/'>{siteTitle}</Link>
-      </h1>
-    </nav>
-  </header>
-);
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navbarClasses = cx('c-nav', {
+    'c-nav__mobile': isMenuOpen,
+  });
+
+  return (
+    <header>
+      <nav className={navbarClasses}>
+        <Link to='/'>
+          <Image />
+        </Link>
+        <HamburgerMenu className='c-nav__mobile-menu' onClick={() => setIsMenuOpen(!isMenuOpen)} />
+        <ul className='nav-links'>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+          <li>
+            <Link to='/about'>Projects</Link>
+          </li>
+          <li>
+            <Link to='/about'>Testimonials</Link>
+          </li>
+          <li>
+            <Link to='/about'>Contact</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
 export default Header;
