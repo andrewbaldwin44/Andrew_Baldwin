@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link } from 'gatsby';
 import cx from 'classnames';
 
 import Image from 'components/image';
 import HamburgerMenu from 'components/hamburger-menu';
+
+const NavLinkUnderline = () => <div className='c-nav__link-underline' />;
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,16 +23,28 @@ const Header = () => {
         <HamburgerMenu className='c-nav__mobile-menu' onClick={() => setIsMenuOpen(!isMenuOpen)} />
         <ul className='nav-links'>
           <li>
-            <Link to='/'>About</Link>
+            <Link activeClassName='c-nav__active-nav-link' to='/'>
+              About
+            </Link>
+            <NavLinkUnderline />
           </li>
           <li>
-            <Link to='/projects'>Projects</Link>
+            <Link activeClassName='c-nav__active-nav-link' to='/projects'>
+              Projects
+            </Link>
+            <NavLinkUnderline />
           </li>
           <li>
-            <Link to='/testimonials'>Testimonials</Link>
+            <Link activeClassName='c-nav__active-nav-link' to='/testimonials'>
+              Testimonials
+            </Link>
+            <NavLinkUnderline />
           </li>
           <li>
-            <Link to='/contact'>Contact</Link>
+            <Link activeClassName='c-nav__active-nav-link' to='/contact'>
+              Contact
+            </Link>
+            <NavLinkUnderline />
           </li>
         </ul>
       </nav>
