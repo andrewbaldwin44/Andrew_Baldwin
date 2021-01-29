@@ -1,6 +1,11 @@
 import React from 'react';
 
-function HamburgerMenu({ className, onClick }) {
+interface IHamburgerMenu {
+  className: string;
+  onClick: () => void;
+}
+
+function HamburgerMenu({ className, onClick }: IHamburgerMenu) {
   return (
     <svg className={className} onClick={onClick} viewBox='0 0 100 60' width='35'>
       <g>
