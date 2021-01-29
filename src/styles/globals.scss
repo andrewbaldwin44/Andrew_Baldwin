@@ -76,14 +76,6 @@ a {
   cursor: pointer;
 }
 
-button,
-input {
-  background-color: white;
-  padding: 10px 18px;
-  border-radius: 6px;
-  letter-spacing: 0.15rem;
-}
-
 input {
   width: 100%;
 }
@@ -97,7 +89,12 @@ input[type="text"] {
 }
 
 button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
+  color: inherit;
 }
 
 audio,
