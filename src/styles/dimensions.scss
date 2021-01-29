@@ -1,5 +1,6 @@
 $navbar-height: 70px;
 
+$container-height: calc(100vh - #{$navbar-height});
 $container-margin: 15px !default;
 $container-margin-medium: 45px !default;
 $container-margin-large: 138px !default;
