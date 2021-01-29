@@ -20,8 +20,16 @@ const Header = () => {
         <Link to='/'>
           <Image />
         </Link>
-        <HamburgerMenu className='c-nav__mobile-menu' onClick={() => setIsMenuOpen(!isMenuOpen)} />
+        <HamburgerMenu
+          className='c-nav__mobile-menu__burger'
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
         <ul className='nav-links'>
+          <li className='c-nav__mobile-menu__close'>
+            <button onClick={() => setIsMenuOpen(false)} type='button'>
+              X
+            </button>
+          </li>
           <li>
             <Link activeClassName='c-nav__active-nav-link' to='/'>
               About

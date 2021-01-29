@@ -44,7 +44,7 @@ header {
         bottom: -2px;
 
         height: 2px;
-        background-color: red;
+        background-color: $main-red;
         border-radius: 2px;
       }
 
@@ -54,14 +54,18 @@ header {
       }
     }
 
-    .c-nav__mobile-menu {
-      display: none;
+    .c-nav__mobile-menu__burger {
       cursor: pointer;
       transition: all 0.2s ease;
 
       &:hover {
-        fill: red;
+        fill: $main-red;
       }
+    }
+
+    .c-nav__mobile-menu__burger,
+    .c-nav__mobile-menu__close {
+      display: none;
 
       @media #{$at-bp-small} {
         display: block;
@@ -70,21 +74,42 @@ header {
   }
 
   .c-nav.c-nav__mobile {
-    position: relative;
-
     .nav-links {
       position: absolute;
+      top: 0;
+      right: 0;
 
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
 
-      top: $navbar-height;
-      width: 100%;
-      padding: 10px 0;
-      line-height: 2;
+      height: 100%;
+      width: 160px;
+      padding: 45px 15px;
+      background-color: white;
+      box-shadow: -2px 3px 5px $black-shadow;
 
-      li {
+      li:not(.c-nav__mobile-menu__close) {
+        width: 100px;
+
         margin: 0;
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
+
+      .c-nav__mobile-menu__close {
+        position: absolute;
+        top: 10px;
+        right: 18px;
+        margin: 0;
+
+        font-size: 1.2em;
+
+        &:hover {
+          color: $main-red;
+        }
       }
     }
   }
