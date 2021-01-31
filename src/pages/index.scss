@@ -1,0 +1,21 @@
+.c-home__heading-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-top: 200px;
+
+  :not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-weight: 200;
+  }
+
+  @media #{$at-bp-small} {
+    align-items: center;
+
+    margin-top: 40px;
+  }
+}
