@@ -1,4 +1,4 @@
-$mobile-navbar-width: 160px;
+$mobile-navbar-width: 190px;
 
 header {
   height: $navbar-height;
@@ -57,19 +57,19 @@ header {
 
     height: 100%;
     width: $mobile-navbar-width;
-    padding: 45px 15px;
+    padding: 0 20px;
+    padding-top: 60px;
     background-color: white;
     box-shadow: -2px 3px 5px $black-shadow;
     right: calc(-#{$mobile-navbar-width} - 10px);
     transition: all 1s ease;
 
     li:not(.c-nav__mobile-menu__close) {
-      width: 100px;
-
       margin: 0;
+      font-size: 1.2em;
 
       &:not(:last-child) {
-        margin-bottom: 15px;
+        margin-bottom: 30px;
       }
     }
 
