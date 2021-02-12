@@ -31,6 +31,10 @@
     "react/jsx-sort-props": 2,
     "react/sort-prop-types": 2,
     "react/require-default-props": "off",
+    "react/no-unescaped-entities": "off",
+    "react/no-array-index-key": "off",
+    "react/display-name": "off",
+    "import/prefer-default-export": "off",
     "no-use-before-define": 0,
     "react/jsx-filename-extension": [
       2,
