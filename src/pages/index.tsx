@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
-import GithubIcon from 'images/github.svg';
-import LinkedinIcon from 'images/linkedin.svg';
+import GithubSvg from 'images/github.svg';
+import LinkedinSvg from 'images/linkedin.svg';
+import TechnologyIcons from 'components/technology-icons/technology-icons.component';
 import 'styles/index.scss';
 
 const IndexPage = () => (
@@ -15,18 +15,19 @@ const IndexPage = () => (
       <h1>Andrew Baldwin</h1>
       <h2>Full Stack Web Developer</h2>
       <div className='c-home__social-container'>
-        <Link rel='noopener noreferrer' target='_blank' to='https://github.com/andrewbaldwin44'>
-          <img alt='Github Icon' src={GithubIcon} />
-        </Link>
-        <Link
+        <a rel='noopener noreferrer' target='_blank' href='https://github.com/andrewbaldwin44'>
+          <img alt='Github Icon' src={GithubSvg} />
+        </a>
+        <a
           rel='noopener noreferrer'
           target='_blank'
-          to='https://www.linkedin.com/in/andrew-baldwin44/'
+          href='https://www.linkedin.com/in/andrew-baldwin44/'
         >
-          <img alt='Linkedin Icon Icon' src={LinkedinIcon} />
-        </Link>
+          <img alt='Linkedin Icon Icon' src={LinkedinSvg} />
+        </a>
       </div>
     </div>
+    <TechnologyIcons />
   </Layout>
 );
 
