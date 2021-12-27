@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface IPortfolioTestimonial {
   student: string;
   exercise: string;

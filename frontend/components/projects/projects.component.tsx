@@ -1,5 +1,3 @@
-import React from 'react';
-
 import GithubIcon from 'assets/github';
 import LinkIcon from 'assets/link';
 import colors from 'tailwindcss/colors';

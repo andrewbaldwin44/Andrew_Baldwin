@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TECHNOLOGY_ICONS } from 'components/technology-icons/technology-icons.icons';
 
 export default function TechnologyIcons() {
