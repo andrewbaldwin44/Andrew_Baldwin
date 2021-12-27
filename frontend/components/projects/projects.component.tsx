@@ -20,7 +20,7 @@ interface IProjects {
 
 export default function Projects({ projects }: IProjects) {
   return (
-    <div className='flex flex-wrap lg:grid grid-cols-2 gap-x-10'>
+    <div className='flex flex-wrap lg:grid grid-cols-3 gap-x-10'>
       {projects.map(({ title, imageUrl, githubLink, demoLink, description }, index: number) => (
         <div
           key={`project-${index}`}

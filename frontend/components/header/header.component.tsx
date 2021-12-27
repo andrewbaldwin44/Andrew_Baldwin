@@ -70,9 +70,6 @@ export default function Header() {
             </button>
           </li>
           <li className='w-content relative'>
-            <NavLink href='/about'>About</NavLink>
-          </li>
-          <li className='w-content relative'>
             <NavLink href='/projects'>Projects</NavLink>
           </li>
           <li className='w-content relative'>
