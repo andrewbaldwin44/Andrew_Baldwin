@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .w-content {
+    width: fit-content;
+  }
+}
+
+body {
+  @apply text-black-500;
+}
