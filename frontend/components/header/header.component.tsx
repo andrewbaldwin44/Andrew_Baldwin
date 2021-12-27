@@ -1,16 +1,30 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
 import 'components/header/header.module.css';
 
-const NavLinkUnderline = () => (
-  <div className='absolute nav-link-underline w-full h-0.5 mt-1 bg-red rounded-sm hidden' />
-);
+function NavLink({ children, href }) {
+  const router = useRouter();
 
-const Header = () => {
+  const NavLinkUnderline = (
+    <div className='absolute nav-link-underline w-full h-0.5 mt-1 bg-red rounded-sm' />
+  );
+
+  return (
+    <>
+      <Link href={href}>
+        <a>{children}</a>
+      </Link>
+      {router.pathname === href && NavLinkUnderline}
+    </>
+  );
+}
+
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
@@ -56,25 +70,19 @@ const Header = () => {
             </button>
           </li>
           <li className='w-content relative'>
-            <Link href='/'>About</Link>
-            <NavLinkUnderline />
+            <NavLink href='/about'>About</NavLink>
           </li>
           <li className='w-content relative'>
-            <Link href='/projects'>Projects</Link>
-            <NavLinkUnderline />
+            <NavLink href='/projects'>Projects</NavLink>
           </li>
           <li className='w-content relative'>
-            <Link href='/testimonials'>Testimonials</Link>
-            <NavLinkUnderline />
+            <NavLink href='/testimonials'>Testimonials</NavLink>
           </li>
           <li className='w-content relative'>
-            <Link href='/contact'>Contact</Link>
-            <NavLinkUnderline />
+            <NavLink href='/contact'>Contact</NavLink>
           </li>
         </ul>
       </div>
     </nav>
   );
-};
-
-export default Header;
+}
