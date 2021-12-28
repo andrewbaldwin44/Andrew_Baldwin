@@ -1,4 +1,4 @@
-import cmsRequest from 'api/cmsRequest';
+import cmsRequest, { ICmsRequestVariables } from 'api/cmsRequest';
 
 const PROJECTS_QUERY = `
   *[_type == "project"] {
@@ -11,7 +11,7 @@ const PROJECTS_QUERY = `
   }[1..50]
 `;
 
-export default async function fetchProjects(variables) {
+export default async function fetchProjects(variables: ICmsRequestVariables) {
   try {
     const projects = await cmsRequest.fetch(PROJECTS_QUERY, variables);
 

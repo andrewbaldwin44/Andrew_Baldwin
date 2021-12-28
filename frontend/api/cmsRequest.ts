@@ -1,4 +1,8 @@
-const sanityClient = require('@sanity/client');
+import sanityClient from '@sanity/client';
+
+export interface ICmsRequestVariables {
+  lang: string;
+}
 
 const client = sanityClient({
   projectId: process.env.SANITY_CLIENT_ID,

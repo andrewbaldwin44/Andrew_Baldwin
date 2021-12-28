@@ -5,9 +5,14 @@ import Image from 'next/image';
 import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
-import 'components/header/header.module.css';
+import styles from 'components/header/header.module.css';
 
-function NavLink({ children, href }) {
+interface INavLink {
+  children: React.ReactChild;
+  href: string;
+}
+
+function NavLink({ children, href }: INavLink) {
   const router = useRouter();
 
   const NavLinkUnderline = (
@@ -36,12 +41,12 @@ export default function Header() {
   };
 
   const navLinkWrapperClasses = cx(
-    'navlinks flex gap-x-16 md:flex md:static md:flex-row md:shadow-none md:w-min md:p-0 md:items-center',
+    styles.navlinks,
+    'flex gap-x-16 md:flex md:static md:flex-row md:shadow-none md:w-min md:p-0 md:items-center',
     {
-      'animate-navlinks-out': isAnimatingOut,
+      [styles.animateNavLinksOut]: isAnimatingOut,
       hidden: !isMenuOpen,
-      'absolute top-0 right-0 h-full w-48 px-6 py-10 gap-y-8 shadow-md bg-white flex flex-col':
-        isMenuOpen,
+      'top-0 right-0 h-full w-48 px-6 py-10 gap-y-8 shadow-md bg-white flex flex-col': isMenuOpen,
     },
   );
 

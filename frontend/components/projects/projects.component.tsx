@@ -2,19 +2,15 @@ import GithubIcon from 'assets/github';
 import LinkIcon from 'assets/link';
 import colors from 'tailwindcss/colors';
 
-export interface IProject {
+interface IProject {
   demoLink: string;
   description: string;
   githubLink: string;
-  image: {
-    asset: {
-      url: string;
-    };
-  };
+  imageUrl: string;
   title: string;
 }
 
-interface IProjects {
+export interface IProjects {
   projects: IProject[];
 }
 

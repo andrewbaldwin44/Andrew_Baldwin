@@ -1,9 +1,10 @@
 .navlinks {
+  position: absolute;
   transform: translateX(100%);
   animation: animate-open cubic-bezier(0.19, 1, 0.22, 1) 0.6s forwards;
 }
 
-.animate-navlinks-out {
+.animateNavLinksOut {
   animation: animate-close cubic-bezier(0.19, 1, 0.22, 1) 0.6s forwards;
 }
 
@@ -24,11 +25,12 @@
 
 @media (min-width: 768px) {
   .navlinks {
+    position: static;
     transform: none;
     animation: none;
   }
 
-  .animate-navlinks-out {
+  .animateNavLinksOut {
     animation: none;
   }
 }

@@ -10,12 +10,18 @@ interface ITestimonials {
 
 export default function Testimonials({ testimonials }: ITestimonials) {
   return (
-    <div>
+    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-x-6'>
       {testimonials.map(({ student, exercise, feedback }, index) => (
-        <div key={`testimonial-${index}`}>
-          <span>{student}</span>
-          <span>{exercise}</span>
-          <span>{feedback}</span>
+        <div
+          className='border border-gray-200 shadow-lg rounded-md p-3 mb-8'
+          key={`testimonial-${index}`}
+        >
+          <p>{feedback}</p>
+          <div className='mt-3'>
+            <span>{`- @${student}`}</span>
+            <span>{' on '}</span>
+            <span>{exercise}</span>
+          </div>
         </div>
       ))}
     </div>

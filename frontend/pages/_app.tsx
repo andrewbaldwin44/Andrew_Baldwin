@@ -1,7 +1,12 @@
 import Head from 'next/head';
 import 'styles/globals.css';
 
-export default function App({ Component, pageProps }) {
+interface IApp {
+  Component: React.ElementType;
+  pageProps: { [key: string]: any };
+}
+
+export default function App({ Component, pageProps }: IApp) {
   return (
     <>
       <Head>

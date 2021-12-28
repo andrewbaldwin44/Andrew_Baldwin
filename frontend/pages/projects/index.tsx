@@ -1,13 +1,9 @@
 import fetchProjects from 'api/projects';
 import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
-import Projects, { IPortfolioProject } from 'components/projects/projects.component';
+import Projects, { IProjects } from 'components/projects/projects.component';
 
-interface IProjectsPage {
-  projects: IPortfolioProject;
-}
-
-export default function ProjectsPage({ projects }: IPortfolioProject) {
+export default function ProjectsPage({ projects }: IProjects) {
   return (
     <Layout>
       <SEO title='Projects' />
@@ -16,7 +12,7 @@ export default function ProjectsPage({ projects }: IPortfolioProject) {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({ locale }: { locale: string }) {
   const projects = await fetchProjects({ lang: locale });
 
   return {
