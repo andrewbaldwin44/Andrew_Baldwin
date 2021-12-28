@@ -1,21 +1,14 @@
 import fetchTestimonials from 'api/testimonials';
 import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
-import Testimonials, {
-  IPortfolioTestimonial,
-} from 'components/testimonials/testimonials.component';
-
-interface ITestimonial {
-  exercise: string;
-  feedback: string;
-  student: string;
-}
+import Testimonials, { ITestimonial } from 'components/testimonials/testimonials.component';
 
 interface ITestimonialsPage {
   testimonials: ITestimonial[];
 }
 
 export default function TestimonialsPage({ testimonials }: ITestimonialsPage) {
+  console.log({ testimonials });
   return (
     <Layout>
       <SEO title='Testimonials' />
@@ -26,6 +19,7 @@ export default function TestimonialsPage({ testimonials }: ITestimonialsPage) {
 
 export async function getStaticProps() {
   const testimonials = await fetchTestimonials();
+  console.log({ testimonials });
 
   return {
     props: { testimonials },

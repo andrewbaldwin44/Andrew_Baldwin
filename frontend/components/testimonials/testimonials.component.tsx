@@ -1,21 +1,35 @@
-export interface IPortfolioTestimonial {
+import cx from 'classnames';
+
+import PlaceholderUser from 'assets/placeholder-user';
+import styles from 'components/testimonials/testimonials.module.css';
+
+export interface ITestimonial {
   student: string;
+  studentImage: string;
   exercise: string;
   feedback: string;
 }
 
 interface ITestimonials {
-  testimonials: IPortfolioTestimonial[];
+  testimonials: ITestimonial[];
 }
 
 export default function Testimonials({ testimonials }: ITestimonials) {
+  const testimonialGridClassnames = cx(styles.testimonialGrid, 'mt-16 gap-x-10');
+
   return (
-    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-x-6'>
-      {testimonials.map(({ student, exercise, feedback }, index) => (
+    <div className={testimonialGridClassnames}>
+      {testimonials.map(({ student, studentImage, exercise, feedback }, index) => (
         <div
-          className='border border-gray-200 shadow-lg rounded-md p-3 mb-8'
+          className='inline-block relative border border-gray-200 shadow-lg rounded-lg px-6 pt-8 pb-4 mb-12 w-full'
           key={`testimonial-${index}`}
         >
+          <div
+            className='h-12 w-12 absolute -top-6 rounded-full bg-center bg-cover'
+            style={{
+              backgroundImage: `url("${studentImage ? studentImage : '/placeholder-user.svg'}")`,
+            }}
+          />
           <p>{feedback}</p>
           <div className='mt-3'>
             <span>{`- @${student}`}</span>

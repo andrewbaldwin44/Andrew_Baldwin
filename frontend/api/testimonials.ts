@@ -3,6 +3,7 @@ import cmsRequest from 'api/cmsRequest';
 const TESTIMONIALS_QUERY = `
   * [_type == "testimonial"] {
     student,
+    "studentImage": studentImage["asset"]->["url"],
     feedback,
     exercise,
   }[1..50]

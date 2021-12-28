@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+  .testimonialGrid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonialGrid {
+    column-count: 3;
+  }
+}
