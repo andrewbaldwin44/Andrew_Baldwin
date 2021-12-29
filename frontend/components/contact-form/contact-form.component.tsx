@@ -1,13 +1,26 @@
 import { useState } from 'react';
+import cx from 'classnames';
 
 import sendEmail from 'api/email';
 import SuccessMessage from 'components/contact-form/success-message.component';
 import SendMailIcon from 'assets/send-mail';
+import styles from 'components/contact-form/contact.module.css';
 
 export default function ContactForm() {
-  const [success, setSuccess] = useState(true);
-  const [hasFormSubmitted, setHasFormSubmitted] = useState(true);
+  const [success, setSuccess] = useState(false);
+  const [hasFormSubmitted, setHasFormSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const sendMailButtonClasses = cx(
+    'flex items-center justify-center w-40 py-2 gap-x-6 text-red font-semibold border-2 border-red rounded mx-auto transition-colors duration-150',
+    {
+      'hover:bg-red hover:text-white': !hasFormSubmitted,
+    },
+  );
+
+  const sendMailClasses = cx('h-6 w-6', {
+    [styles.sendMail]: hasFormSubmitted,
+  });
 
   const disableForm = formElement => {
     const { elements } = formElement;
@@ -24,13 +37,13 @@ export default function ContactForm() {
     e.preventDefault();
     disableForm(e.target);
     setHasFormSubmitted(true);
-    // sendEmail(e.target, setSuccess, setErrorMessage);
+    sendEmail(e.target, setSuccess, setErrorMessage);
 
     e.target.reset();
   };
 
   return (
-    <div className='border border-gray-200 shadow rounded-lg px-12 py-10 max-w-screen-sm mx-auto mt-20'>
+    <div className='overflow-hidden border border-gray-200 shadow rounded-lg px-12 py-10 max-w-screen-sm mx-auto mt-20'>
       {success ? (
         <SuccessMessage />
       ) : (
@@ -87,12 +100,9 @@ export default function ContactForm() {
                 required
               />
             </label>
-            <button
-              className='flex items-center justify-center w-40 py-2 gap-x-6 text-red font-semibold border-2 border-red rounded mx-auto hover:bg-red hover:text-white transition-colors duration-150'
-              type='submit'
-            >
+            <button className={sendMailButtonClasses} type='submit'>
               Send
-              <SendMailIcon className='h-6 w-6s' />
+              <SendMailIcon className={sendMailClasses} />
             </button>
             {errorMessage && <p>{errorMessage}</p>}
           </form>
