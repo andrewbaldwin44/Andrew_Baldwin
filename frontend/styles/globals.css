@@ -6,6 +6,11 @@
   .w-content {
     width: fit-content;
   }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 body {
