@@ -22,24 +22,24 @@ export default function ContactForm() {
     [styles.sendMail]: hasFormSubmitted,
   });
 
-  const disableForm = formElement => {
+  const disableForm = (formElement: HTMLFormElement) => {
     const { elements } = formElement;
 
     for (let i = 0; i < elements.length; i++) {
-      elements[i].readOnly = true;
-      elements[i].disabled = true;
+      (elements[i] as HTMLInputElement).readOnly = true;
+      (elements[i] as HTMLInputElement).disabled = true;
     }
 
-    formElement.style.opacity = 0.6;
+    formElement.style.opacity = '0.6';
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    disableForm(e.target);
+    disableForm(e.target as HTMLFormElement);
     setHasFormSubmitted(true);
-    sendEmail(e.target, setSuccess, setErrorMessage);
+    sendEmail(e.target as HTMLFormElement, setSuccess, setErrorMessage);
 
-    e.target.reset();
+    (e.target as HTMLFormElement).reset();
   };
 
   return (
@@ -93,9 +93,8 @@ export default function ContactForm() {
               Message:
               <textarea
                 className='p-3 mt-4 border border-gray-300 rounded text-black-500 text-base outline-none'
-                rows='4'
+                rows={4}
                 id='contact-form-message'
-                type='text'
                 name='message'
                 required
               />

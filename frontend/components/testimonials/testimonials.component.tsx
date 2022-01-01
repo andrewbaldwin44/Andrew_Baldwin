@@ -1,7 +1,9 @@
 import cx from 'classnames';
 
-import PlaceholderUser from 'assets/placeholder-user';
 import styles from 'components/testimonials/testimonials.module.css';
+import LoadMoreButton, {
+  ILoadMoreButton,
+} from 'components/load-more-button/load-more-button.component';
 
 export interface ITestimonial {
   student: string;
@@ -14,7 +16,16 @@ interface ITestimonials {
   testimonials: ITestimonial[];
 }
 
-export default function Testimonials({ testimonials }: ITestimonials) {
+interface ITestimonialsProps extends ITestimonials, ILoadMoreButton {
+  shouldShowLoadMore: boolean;
+}
+
+export default function Testimonials({
+  testimonials,
+  shouldShowLoadMore,
+  onLoadMore,
+  isLoading,
+}: ITestimonialsProps) {
   const testimonialGridClassnames = cx(styles.testimonialGrid, 'mt-16 gap-x-10');
 
   return (
@@ -38,6 +49,7 @@ export default function Testimonials({ testimonials }: ITestimonials) {
           </div>
         </div>
       ))}
+      {shouldShowLoadMore && <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />}
     </div>
   );
 }

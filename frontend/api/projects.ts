@@ -1,4 +1,5 @@
-import cmsRequest, { ICmsRequestVariables } from 'api/cmsRequest';
+import cmsRequest, { ICmsRequestVariables, cmsRequestResponse, CMS_ENTRIES } from 'api/cmsRequest';
+import { asynchrounousRequest } from 'api/asynchrounousRequest';
 
 const PROJECTS_QUERY = `
   *[_type == "project"] {
@@ -8,15 +9,17 @@ const PROJECTS_QUERY = `
     demoLink,
     "imageUrl": image["asset"]->["url"],
     tags,
-  }[1..50]
+  }[$next..($next+49)]
 `;
 
-export default async function fetchProjects(variables: ICmsRequestVariables) {
+export default async function fetchProjects(variables: ICmsRequestVariables = { next: 0 }) {
   try {
     const projects = await cmsRequest.fetch(PROJECTS_QUERY, variables);
 
-    return projects;
+    return cmsRequestResponse(projects, CMS_ENTRIES.PROJECTS, variables.next || 0);
   } catch ({ message }) {
-    return message;
+    console.error('Testimonials CMS Request Failed:', message);
+
+    return { response: null, next: null };
   }
 }
