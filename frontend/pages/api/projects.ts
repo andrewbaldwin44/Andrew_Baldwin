@@ -5,7 +5,7 @@ import fetchProjects from 'api/projects';
 export default async function handler({ query }: NextApiRequest, res: NextApiResponse) {
   const { response, paginationNumber } = await fetchProjects({
     paginationNumber: Number(query.paginationNumber),
-    lang: query.locale,
+    lang: String(query.locale),
   });
 
   res.status(200).json({ response, paginationNumber });

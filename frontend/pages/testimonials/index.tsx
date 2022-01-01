@@ -5,6 +5,7 @@ import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
 import Testimonials, { ITestimonial } from 'components/testimonials/testimonials.component';
 import { TESTIMONIALS_CONTROLLER } from 'api/controllers/testimonials';
+import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
 
 interface ITestimonialsPage {
   testimonials: ITestimonial[];
@@ -12,29 +13,20 @@ interface ITestimonialsPage {
 }
 
 export default function TestimonialsPage({ testimonials, paginationNumber }: ITestimonialsPage) {
-  const [loadedTestimonials, setLoadedTestimonials] = useState(testimonials);
-  const [isLoading, setIsLoading] = useState(false);
-  const [nextTestimonials, setNextTestimonials] = useState(paginationNumber);
-
-  const onLoadMore = async () => {
-    setIsLoading(true);
-
-    const { response, paginationNumber: newNextTestimonials } = await TESTIMONIALS_CONTROLLER.get({
-      paginationNumber,
+  const { onLoadMore, isLoading, loadedTiles, currentPaginationNumber } =
+    useLoadMorePage<ITestimonial>({
+      initialTiles: testimonials,
+      initialPaginationNumber: paginationNumber,
+      loadMoreCallback: TESTIMONIALS_CONTROLLER.get,
     });
-    setLoadedTestimonials([...loadedTestimonials, ...response]);
-    setNextTestimonials(newNextTestimonials);
-
-    setIsLoading(false);
-  };
 
   return (
     <Layout>
       <SEO title='Testimonials' />
       {testimonials && (
         <Testimonials
-          testimonials={loadedTestimonials}
-          shouldShowLoadMore={!!nextTestimonials}
+          testimonials={loadedTiles}
+          shouldShowLoadMore={!!currentPaginationNumber}
           onLoadMore={onLoadMore}
           isLoading={isLoading}
         />

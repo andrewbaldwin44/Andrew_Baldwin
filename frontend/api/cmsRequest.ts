@@ -33,7 +33,9 @@ export async function cmsRequestResponse(
 ) {
   const cmsEntryLength = await client.fetch(CMS_ENTRY_LENGTH_QUERY, { cmsEntry });
   const newCmsPagination =
-    cmsEntryLength > paginationNumber + CMS_PAGINATION.end ? CMS_PAGINATION.end + 1 : null;
+    cmsEntryLength > paginationNumber + CMS_PAGINATION.end
+      ? CMS_PAGINATION.end + 1 + paginationNumber
+      : null;
 
   return { response, paginationNumber: newCmsPagination };
 }

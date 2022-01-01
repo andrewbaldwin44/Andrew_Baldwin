@@ -16,12 +16,12 @@ const TESTIMONIALS_QUERY = `
 `;
 
 export default async function fetchTestimonials(
-  variables: ICmsRequestVariables = { paginationNumber: CMS_PAGINATION.start },
+  { paginationNumber }: ICmsRequestVariables = { paginationNumber: CMS_PAGINATION.start },
 ) {
   try {
-    const testimonials = await cmsRequest.fetch(TESTIMONIALS_QUERY, variables);
+    const testimonials = await cmsRequest.fetch(TESTIMONIALS_QUERY, { paginationNumber });
 
-    return cmsRequestResponse(testimonials, CMS_ENTRIES.TESTIMONIALS, variables.paginationNumber);
+    return cmsRequestResponse(testimonials, CMS_ENTRIES.TESTIMONIALS, paginationNumber);
   } catch ({ message }) {
     console.error('Testimonials CMS Request Failed:', message);
 
