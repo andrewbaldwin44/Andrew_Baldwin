@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import fetchProjects from 'api/projects';
 import Layout from 'components/layout/layout.component';
@@ -8,18 +9,23 @@ import { PROJECTS_CONTROLLER } from 'api/controllers/projects';
 
 interface IProjectsPage {
   projects: IProject[];
-  next: number;
+  paginationNumber: number;
 }
 
-export default function ProjectsPage({ projects, next }: IProjectsPage) {
+export default function ProjectsPage({ projects, paginationNumber }: IProjectsPage) {
+  const { locale } = useRouter();
+
   const [loadedProjects, setLoadedProjects] = useState(projects);
   const [isLoading, setIsLoading] = useState(false);
-  const [nextProjects, setNextProjects] = useState(next);
+  const [nextProjects, setNextProjects] = useState(paginationNumber);
 
   const onLoadMore = async () => {
     setIsLoading(true);
 
-    const { response, next: newNextProjects } = await PROJECTS_CONTROLLER.get({ next });
+    const { response, paginationNumber: newNextProjects } = await PROJECTS_CONTROLLER.get({
+      paginationNumber,
+      locale,
+    });
     setLoadedProjects([...loadedProjects, ...response]);
     setNextProjects(newNextProjects);
 
@@ -42,9 +48,9 @@ export default function ProjectsPage({ projects, next }: IProjectsPage) {
 }
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const { response, next } = await fetchProjects({ lang: locale });
+  const { response, paginationNumber } = await fetchProjects({ lang: locale });
 
   return {
-    props: { projects: response, next },
+    props: { projects: response, paginationNumber },
   };
 }

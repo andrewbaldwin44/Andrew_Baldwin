@@ -2,7 +2,7 @@ import sanityClient from '@sanity/client';
 
 export interface ICmsRequestVariables {
   lang?: string;
-  next?: number;
+  paginationNumber?: number;
 }
 
 export enum CMS_ENTRIES {
@@ -14,6 +14,11 @@ const CMS_ENTRY_LENGTH_QUERY = `
   length(*[_type == $cmsEntry])
 `;
 
+export enum CMS_PAGINATION {
+  start = 0,
+  end = 49,
+}
+
 const client = sanityClient({
   projectId: process.env.SANITY_CLIENT_ID,
   apiVersion: 'v1',
@@ -24,11 +29,13 @@ const client = sanityClient({
 export async function cmsRequestResponse(
   response: string,
   cmsEntry: typeof CMS_ENTRIES[keyof typeof CMS_ENTRIES],
-  next: number,
+  paginationNumber: number = CMS_PAGINATION.start,
 ) {
   const cmsEntryLength = await client.fetch(CMS_ENTRY_LENGTH_QUERY, { cmsEntry });
+  const newCmsPagination =
+    cmsEntryLength > paginationNumber + CMS_PAGINATION.end ? CMS_PAGINATION.end + 1 : null;
 
-  return { response, next: cmsEntryLength > next + 49 ? next + 50 : null };
+  return { response, paginationNumber: newCmsPagination };
 }
 
 export default client;

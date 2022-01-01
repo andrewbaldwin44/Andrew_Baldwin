@@ -1,4 +1,9 @@
-import cmsRequest, { ICmsRequestVariables, cmsRequestResponse, CMS_ENTRIES } from 'api/cmsRequest';
+import cmsRequest, {
+  ICmsRequestVariables,
+  cmsRequestResponse,
+  CMS_ENTRIES,
+  CMS_PAGINATION,
+} from 'api/cmsRequest';
 import { asynchrounousRequest } from 'api/asynchrounousRequest';
 
 const PROJECTS_QUERY = `
@@ -9,17 +14,20 @@ const PROJECTS_QUERY = `
     demoLink,
     "imageUrl": image["asset"]->["url"],
     tags,
-  }[$next..($next+49)]
+  }[$paginationNumber..($paginationNumber+${CMS_PAGINATION.end})]
 `;
 
-export default async function fetchProjects(variables: ICmsRequestVariables = { next: 0 }) {
+export default async function fetchProjects({
+  lang,
+  paginationNumber = CMS_PAGINATION.start,
+}: ICmsRequestVariables) {
   try {
-    const projects = await cmsRequest.fetch(PROJECTS_QUERY, variables);
+    const projects = await cmsRequest.fetch(PROJECTS_QUERY, { lang, paginationNumber });
 
-    return cmsRequestResponse(projects, CMS_ENTRIES.PROJECTS, variables.next || 0);
+    return cmsRequestResponse(projects, CMS_ENTRIES.PROJECTS, paginationNumber);
   } catch ({ message }) {
-    console.error('Testimonials CMS Request Failed:', message);
+    console.error('Projects CMS Request Failed:', message);
 
-    return { response: null, next: null };
+    return { response: null, paginationNumber: null };
   }
 }

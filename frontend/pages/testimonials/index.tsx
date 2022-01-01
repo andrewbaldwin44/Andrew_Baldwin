@@ -8,18 +8,20 @@ import { TESTIMONIALS_CONTROLLER } from 'api/controllers/testimonials';
 
 interface ITestimonialsPage {
   testimonials: ITestimonial[];
-  next: number;
+  paginationNumber: number;
 }
 
-export default function TestimonialsPage({ testimonials, next }: ITestimonialsPage) {
+export default function TestimonialsPage({ testimonials, paginationNumber }: ITestimonialsPage) {
   const [loadedTestimonials, setLoadedTestimonials] = useState(testimonials);
   const [isLoading, setIsLoading] = useState(false);
-  const [nextTestimonials, setNextTestimonials] = useState(next);
+  const [nextTestimonials, setNextTestimonials] = useState(paginationNumber);
 
   const onLoadMore = async () => {
     setIsLoading(true);
 
-    const { response, next: newNextTestimonials } = await TESTIMONIALS_CONTROLLER.get({ next });
+    const { response, paginationNumber: newNextTestimonials } = await TESTIMONIALS_CONTROLLER.get({
+      paginationNumber,
+    });
     setLoadedTestimonials([...loadedTestimonials, ...response]);
     setNextTestimonials(newNextTestimonials);
 
@@ -42,9 +44,9 @@ export default function TestimonialsPage({ testimonials, next }: ITestimonialsPa
 }
 
 export async function getStaticProps() {
-  const { response, next } = await fetchTestimonials();
+  const { response, paginationNumber } = await fetchTestimonials();
 
   return {
-    props: { testimonials: response, next },
+    props: { testimonials: response, paginationNumber },
   };
 }
