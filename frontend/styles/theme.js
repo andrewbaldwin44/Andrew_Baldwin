@@ -1,6 +1,7 @@
 const tailwindcolors = require('tailwindcss/colors');
 
 const colors = {
+  transparent: 'transparent',
   white: '#fff',
   black: {
     500: '#3a2e2c',

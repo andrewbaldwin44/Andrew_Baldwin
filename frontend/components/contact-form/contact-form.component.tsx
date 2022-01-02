@@ -11,13 +11,6 @@ export default function ContactForm() {
   const [hasFormSubmitted, setHasFormSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const sendMailButtonClasses = cx(
-    'flex items-center justify-center w-40 py-2 gap-x-6 text-red font-semibold border-2 border-red rounded mx-auto transition-colors duration-150',
-    {
-      'hover:bg-red hover:text-white': !hasFormSubmitted,
-    },
-  );
-
   const sendMailClasses = cx('h-6 w-6', {
     [styles.sendMail]: hasFormSubmitted,
   });
@@ -99,7 +92,10 @@ export default function ContactForm() {
                 required
               />
             </label>
-            <button className={sendMailButtonClasses} type='submit'>
+            <button
+              className='btn btn-red flex items-center justify-center w-40 gap-x-6 mx-auto'
+              type='submit'
+            >
               Send
               <SendMailIcon className={sendMailClasses} />
             </button>
