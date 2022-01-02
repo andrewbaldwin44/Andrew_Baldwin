@@ -16,7 +16,7 @@ interface IProjects {
 
 export default function Projects({ projects }: IProjects) {
   return (
-    <div className='flex flex-wrap lg:grid grid-cols-3 gap-x-10'>
+    <div className='flex flex-wrap md:grid grid-cols-2 lg:grid-cols-3 gap-x-10'>
       {projects.map(({ title, imageUrl, githubLink, demoLink, description }, index: number) => (
         <div
           key={`project-${index}`}
@@ -24,9 +24,9 @@ export default function Projects({ projects }: IProjects) {
         >
           <div
             style={{ backgroundImage: `url("${imageUrl}")` }}
-            className='w-full min-w-full h-96 bg-cover bg-no-repeat bg-center rounded-t'
+            className='w-full min-w-full h-52 lg:h-80 bg-cover bg-no-repeat bg-center rounded-t'
           />
-          <div className='px-6 py-4 md:px-14 lg:px-8 xl:px-14 lg:flex lg:flex-col lg:flex-1 lg:justify-between'>
+          <div className='px-6 py-4 lg:px-8 xl:px-14 lg:flex lg:flex-col lg:flex-1 lg:justify-between'>
             <div>
               <h2 className='text-xl h-16 flex items-center font-bold'>{title}</h2>
               <p className='mb-6 lg:mb-8 xl:mb-10 md:text-justify'>{description}</p>
