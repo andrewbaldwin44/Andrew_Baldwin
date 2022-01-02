@@ -16,7 +16,7 @@ const CMS_ENTRY_LENGTH_QUERY = `
 
 export enum CMS_PAGINATION {
   start = 0,
-  end = 6,
+  end = 49,
 }
 
 const client = sanityClient({
