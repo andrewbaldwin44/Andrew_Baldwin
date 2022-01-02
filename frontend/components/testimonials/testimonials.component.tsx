@@ -17,13 +17,13 @@ interface ITestimonials {
 }
 
 export default function Testimonials({ testimonials }: ITestimonials) {
-  const testimonialGridClassnames = cx(styles.testimonialGrid, 'mt-16 gap-x-10');
+  const testimonialGridClassnames = cx(styles.testimonialGrid, 'mt-8 lg:mt-16 gap-x-10');
 
   return (
     <div className={testimonialGridClassnames}>
       {testimonials.map(({ student, studentImage, exercise, feedback }, index) => (
         <div
-          className='inline-block relative border border-gray-200 shadow-lg rounded-lg px-6 pt-8 pb-4 mb-12 w-full'
+          className='inline-block relative border border-gray-200 shadow-lg rounded-lg px-6 pt-8 pb-4 mb-20 md:mb-12 w-full'
           key={`testimonial-${index}`}
         >
           <div
