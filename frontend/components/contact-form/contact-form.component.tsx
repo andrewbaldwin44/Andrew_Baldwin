@@ -42,7 +42,7 @@ export default function ContactForm() {
       ) : (
         <>
           <form className='flex flex-col gap-y-8' onSubmit={onSubmit}>
-            <h1 className='text-center text-2xl'>Contact Us</h1>
+            <h1 className='text-center text-2xl'>Send Me a Message!</h1>
             <label
               className='text-gray-500 text-sm flex flex-col border-b'
               htmlFor='contact-form-name'
