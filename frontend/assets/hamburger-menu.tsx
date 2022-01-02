@@ -2,10 +2,11 @@ import React from 'react';
 
 import { IAsset } from 'assets/types';
 
-function HamburgerMenu({ className }: IAsset) {
+function HamburgerMenu({ className, height }: IAsset) {
   return (
     <svg
       className={className}
+      height={height}
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
@@ -15,7 +16,7 @@ function HamburgerMenu({ className }: IAsset) {
         d='M4 6h16M4 12h16M4 18h16'
         strokeLinecap='round'
         strokeLinejoin='round'
-        strokeWidth='2'
+        strokeWidth='1'
       />
     </svg>
   );

@@ -7,6 +7,7 @@ const colors = {
     500: '#3a2e2c',
     DEFAULT: '#000',
   },
+  black05: 'rgba(0, 0, 0, 0.5)',
 
   gray: tailwindcolors.gray,
 

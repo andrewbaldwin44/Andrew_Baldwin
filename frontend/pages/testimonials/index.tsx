@@ -25,9 +25,11 @@ export default function TestimonialsPage({ testimonials, paginationNumber }: ITe
     <Layout>
       <SEO title='Testimonials' />
       {testimonials && <Testimonials testimonials={loadedTiles} />}
-      {!!currentPaginationNumber && (
-        <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />
-      )}
+      <>
+        {!!currentPaginationNumber && (
+          <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />
+        )}
+      </>
     </Layout>
   );
 }

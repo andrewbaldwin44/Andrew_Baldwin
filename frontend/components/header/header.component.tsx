@@ -29,6 +29,10 @@ function NavLink({ children, href }: INavLink) {
   );
 }
 
+function Dimmer() {
+  return <div className='absolute w-screen h-screen bg-black05 md:hidden z-10' />;
+}
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
@@ -46,7 +50,8 @@ export default function Header() {
     {
       [styles.animateNavLinksOut]: isAnimatingOut,
       hidden: !isMenuOpen,
-      'top-0 right-0 h-full w-48 px-6 py-10 gap-y-8 shadow-md bg-white flex flex-col': isMenuOpen,
+      'relative z-50 h-screen bg-white top-0 right-0 h-full w-64 px-8 py-16 gap-y-8 shadow-lg bg-white flex flex-col':
+        isMenuOpen,
     },
   );
 
@@ -55,36 +60,53 @@ export default function Header() {
     hidden: !isMenuOpen,
   });
 
+  const navLinkListItemClasses = cx('relative', {
+    'w-content': !isMenuOpen,
+    'border-b border-gray-300 pb-6': isMenuOpen,
+  });
+
   return (
-    <nav className='shadow-md mb-8'>
-      <div className='container mx-auto flex justify-between items-center gap-x-2 p-3'>
-        <Link passHref href='/'>
-          <Image alt='Logo' src='/logo.png' loading='eager' layout='fixed' width={40} height={40} />
-        </Link>
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} type='button'>
-          <HamburgerMenu className='md:hidden w-6' />
-        </button>
-        <ul className={navLinkWrapperClasses} onAnimationEnd={onAnimationEnd}>
-          <li className={mobileMenuCloseClasses}>
-            <button
-              className='text-3xl text-red'
-              onClick={() => setIsAnimatingOut(true)}
-              type='button'
-            >
-              &#120;
-            </button>
-          </li>
-          <li className='w-content relative'>
-            <NavLink href='/projects'>Projects</NavLink>
-          </li>
-          <li className='w-content relative'>
-            <NavLink href='/testimonials'>Testimonials</NavLink>
-          </li>
-          <li className='w-content relative'>
-            <NavLink href='/contact'>Contact</NavLink>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <>
+      {isMenuOpen && !isAnimatingOut && <Dimmer />}
+      <nav className='shadow-md mb-8 bg-white'>
+        <div className='container mx-auto flex justify-between items-center gap-x-2 p-3'>
+          <Link passHref href='/'>
+            <div className='flex cursor-pointer'>
+              <Image
+                alt='Logo'
+                src='/logo.png'
+                loading='eager'
+                layout='fixed'
+                width={40}
+                height={40}
+              />
+            </div>
+          </Link>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} type='button'>
+            <HamburgerMenu className='md:hidden' height='32' />
+          </button>
+          <ul className={navLinkWrapperClasses} onAnimationEnd={onAnimationEnd}>
+            <li className={mobileMenuCloseClasses}>
+              <button
+                className='text-3xl text-red'
+                onClick={() => setIsAnimatingOut(true)}
+                type='button'
+              >
+                &#120;
+              </button>
+            </li>
+            <li className={navLinkListItemClasses}>
+              <NavLink href='/projects'>Projects</NavLink>
+            </li>
+            <li className={navLinkListItemClasses}>
+              <NavLink href='/testimonials'>Testimonials</NavLink>
+            </li>
+            <li className={navLinkListItemClasses}>
+              <NavLink href='/contact'>Contact</NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }

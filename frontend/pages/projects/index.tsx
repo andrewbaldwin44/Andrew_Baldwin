@@ -30,9 +30,11 @@ export default function ProjectsPage({ projects, paginationNumber }: IProjectsPa
     <Layout>
       <SEO title='Projects' />
       {projects && <Projects projects={loadedTiles} />}
-      {!!currentPaginationNumber && (
-        <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />
-      )}
+      <>
+        {!!currentPaginationNumber && (
+          <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />
+        )}
+      </>
     </Layout>
   );
 }
