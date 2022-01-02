@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { IAsset } from 'assets/types';
 
 function HamburgerMenu({ className, height }: IAsset) {

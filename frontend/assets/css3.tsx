@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { IAsset } from 'assets/types';
 
 export default function CSS({ className }: IAsset) {
