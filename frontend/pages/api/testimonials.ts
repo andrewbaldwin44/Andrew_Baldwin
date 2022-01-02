@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import fetchTestimonials from 'api/testimonials';
+import fetchTestimonials from 'externalRequest/testimonials';
 
 export default async function handler({ query, ...rest }: NextApiRequest, res: NextApiResponse) {
   const { response, paginationNumber } = await fetchTestimonials({

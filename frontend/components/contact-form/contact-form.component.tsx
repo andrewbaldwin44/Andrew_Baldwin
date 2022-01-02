@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import cx from 'classnames';
 
-import sendEmail from 'api/email';
+import sendEmail from 'externalRequest/email';
 import SuccessMessage from 'components/contact-form/success-message.component';
 import SendMailIcon from 'assets/send-mail';
 import styles from 'components/contact-form/contact.module.css';

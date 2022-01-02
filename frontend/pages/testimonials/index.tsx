@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import fetchTestimonials from 'api/testimonials';
+import fetchTestimonials from 'externalRequest/testimonials';
 import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
 import Testimonials, { ITestimonial } from 'components/testimonials/testimonials.component';
-import { TESTIMONIALS_CONTROLLER } from 'api/controllers/testimonials';
+import { TESTIMONIALS_CONTROLLER } from 'externalRequest/controllers/testimonials';
 import LoadMoreButton from 'components/load-more-button/load-more-button.component';
 import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
 

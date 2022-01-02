@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-import fetchProjects from 'api/projects';
+import fetchProjects from 'externalRequest/projects';
 import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
 import Projects, { IProject } from 'components/projects/projects.component';
-import { PROJECTS_CONTROLLER } from 'api/controllers/projects';
+import { PROJECTS_CONTROLLER } from 'externalRequest/controllers/projects';
 import LoadMoreButton from 'components/load-more-button/load-more-button.component';
 import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
 

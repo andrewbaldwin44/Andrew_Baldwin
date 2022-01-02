@@ -3,8 +3,8 @@ import cmsRequest, {
   cmsRequestResponse,
   CMS_ENTRIES,
   CMS_PAGINATION,
-} from 'api/cmsRequest';
-import { asynchrounousRequest } from 'api/asynchrounousRequest';
+} from 'externalRequest/cmsRequest';
+import { asynchrounousRequest } from 'externalRequest/asynchrounousRequest';
 
 const TESTIMONIALS_QUERY = `
   *[_type == "testimonial"] {

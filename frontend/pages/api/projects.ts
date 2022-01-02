@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import fetchProjects from 'api/projects';
+import fetchProjects from 'externalRequest/projects';
 
 export default async function handler({ query }: NextApiRequest, res: NextApiResponse) {
   const { response, paginationNumber } = await fetchProjects({
