@@ -68,8 +68,11 @@ export default function Header() {
   return (
     <>
       {isMenuOpen && !isAnimatingOut && <Dimmer />}
-      <nav className='shadow-md mb-8 bg-white'>
-        <div className='container mx-auto flex justify-between items-center gap-x-2 p-3'>
+      <nav className='shadow-md bg-white'>
+        <div
+          className='container mx-auto flex justify-between items-center gap-x-2 p-3'
+          style={{ height: 'var(--navbar-height)' }}
+        >
           <Link passHref href='/'>
             <div className='flex cursor-pointer'>
               <Image

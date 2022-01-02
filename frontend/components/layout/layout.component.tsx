@@ -9,7 +9,9 @@ const Layout = ({ children }: ILayout) => {
     <>
       <Header />
       <div className='container px-3 mx-auto'>
-        <main>{children}</main>
+        <main className='pt-8' style={{ height: 'calc(100vh - var(--navbar-height)' }}>
+          {children}
+        </main>
       </div>
     </>
   );
