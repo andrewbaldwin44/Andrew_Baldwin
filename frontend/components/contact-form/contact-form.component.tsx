@@ -36,7 +36,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className='overflow-hidden border border-gray-200 shadow rounded-lg px-12 py-10 max-w-screen-sm mx-auto mt-20'>
+    <div className='overflow-hidden border border-gray-200 shadow rounded-lg px-6 md:px-12 py-10 max-w-screen-sm mx-auto md:mt-20'>
       {success ? (
         <SuccessMessage />
       ) : (
@@ -93,7 +93,7 @@ export default function ContactForm() {
               />
             </label>
             <button
-              className='btn btn-red flex items-center justify-center w-40 gap-x-6 mx-auto'
+              className='btn btn-red flex items-center justify-center w-full md:w-64 gap-x-6 mx-auto'
               type='submit'
             >
               Send
