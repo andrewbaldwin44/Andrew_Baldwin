@@ -5,6 +5,7 @@ import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
 import Testimonials, { ITestimonial } from 'components/testimonials/testimonials.component';
 import { TESTIMONIALS_CONTROLLER } from 'api/controllers/testimonials';
+import LoadMoreButton from 'components/load-more-button/load-more-button.component';
 import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
 
 interface ITestimonialsPage {
@@ -23,13 +24,9 @@ export default function TestimonialsPage({ testimonials, paginationNumber }: ITe
   return (
     <Layout>
       <SEO title='Testimonials' />
-      {testimonials && (
-        <Testimonials
-          testimonials={loadedTiles}
-          shouldShowLoadMore={!!currentPaginationNumber}
-          onLoadMore={onLoadMore}
-          isLoading={isLoading}
-        />
+      {testimonials && <Testimonials testimonials={loadedTiles} />}
+      {!!currentPaginationNumber && (
+        <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />
       )}
     </Layout>
   );

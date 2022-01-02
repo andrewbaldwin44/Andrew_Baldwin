@@ -1,9 +1,6 @@
 import GithubIcon from 'assets/github';
 import LinkIcon from 'assets/link';
 import colors from 'tailwindcss/colors';
-import LoadMoreButton, {
-  ILoadMoreButton,
-} from 'components/load-more-button/load-more-button.component';
 
 export interface IProject {
   demoLink: string;
@@ -13,17 +10,11 @@ export interface IProject {
   title: string;
 }
 
-interface IProjectsProps extends ILoadMoreButton {
+interface IProjects {
   projects: IProject[];
-  shouldShowLoadMore: boolean;
 }
 
-export default function Projects({
-  projects,
-  shouldShowLoadMore,
-  onLoadMore,
-  isLoading,
-}: IProjectsProps) {
+export default function Projects({ projects }: IProjects) {
   return (
     <div className='flex flex-wrap lg:grid grid-cols-3 gap-x-10'>
       {projects.map(({ title, imageUrl, githubLink, demoLink, description }, index: number) => (
@@ -56,7 +47,6 @@ export default function Projects({
           </div>
         </div>
       ))}
-      {shouldShowLoadMore && <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />}
     </div>
   );
 }

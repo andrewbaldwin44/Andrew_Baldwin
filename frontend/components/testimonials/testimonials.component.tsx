@@ -16,16 +16,7 @@ interface ITestimonials {
   testimonials: ITestimonial[];
 }
 
-interface ITestimonialsProps extends ITestimonials, ILoadMoreButton {
-  shouldShowLoadMore: boolean;
-}
-
-export default function Testimonials({
-  testimonials,
-  shouldShowLoadMore,
-  onLoadMore,
-  isLoading,
-}: ITestimonialsProps) {
+export default function Testimonials({ testimonials }: ITestimonials) {
   const testimonialGridClassnames = cx(styles.testimonialGrid, 'mt-16 gap-x-10');
 
   return (
@@ -49,7 +40,6 @@ export default function Testimonials({
           </div>
         </div>
       ))}
-      {shouldShowLoadMore && <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />}
     </div>
   );
 }
