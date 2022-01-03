@@ -11,7 +11,7 @@ export default function HomePage() {
       <div className='lg:flex lg:justify-between lg:items-center h-full '>
         <div className='text-center lg:text-left lg:min-w-content'>
           <h2 className='text-lg lg:text-2xl dark:text-gray-500'>{"Hello, I'm"}</h2>
-          <h1 className='text-4xl font-bold mb-2 lg:text-5xl lg:my-2 dark:text-white'>
+          <h1 className='text-4xl font-bold mb-2 lg:text-5xl lg:my-2 dark:text-gray-100'>
             Andrew Baldwin
           </h1>
           <h2 className='text-lg lg:text-2xl dark:text-gray-500'>Full Stack Web Developer</h2>

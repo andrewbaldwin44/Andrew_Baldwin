@@ -41,7 +41,7 @@ export default function DarkLightToggle() {
     }
   };
 
-  const iconClasses = cx('h-6 w-6 dark:text-white');
+  const iconClasses = cx('h-6 w-6 dark:text-gray-100');
 
   return (
     <button onClick={toggleMode}>

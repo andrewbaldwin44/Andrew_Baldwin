@@ -61,7 +61,7 @@ export default function Header() {
     hidden: !isMenuOpen,
   });
 
-  const navLinkListItemClasses = cx('relative dark:text-white', {
+  const navLinkListItemClasses = cx('relative dark:text-gray-100', {
     'w-content': !isMenuOpen,
     'border-b border-gray-300 pb-6': isMenuOpen,
   });
@@ -87,7 +87,7 @@ export default function Header() {
             </div>
           </Link>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} type='button'>
-            <HamburgerMenu className='md:hidden dark:text-white' height='32' />
+            <HamburgerMenu className='md:hidden dark:text-gray-100' height='32' />
           </button>
           <ul className={navLinkWrapperClasses} onAnimationEnd={onAnimationEnd}>
             <li className={mobileMenuCloseClasses}>
