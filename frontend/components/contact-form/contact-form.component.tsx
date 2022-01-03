@@ -42,14 +42,14 @@ export default function ContactForm() {
       ) : (
         <>
           <form className='flex flex-col gap-y-8' onSubmit={onSubmit}>
-            <h1 className='text-center text-2xl'>Send Me a Message!</h1>
+            <h1 className='text-center text-2xl dark:text-gray-100'>Send Me a Message!</h1>
             <label
-              className='text-gray-500 text-sm flex flex-col border-b'
+              className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
               htmlFor='contact-form-name'
             >
               Name:
               <input
-                className='my-2 text-black-500 text-base outline-none'
+                className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='contact-form-name'
                 type='text'
                 name='name'
@@ -57,12 +57,12 @@ export default function ContactForm() {
               />
             </label>
             <label
-              className='text-gray-500 text-sm flex flex-col border-b'
+              className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
               htmlFor='contact-form-email'
             >
               Email:
               <input
-                className='my-2 text-black-500 text-base outline-none'
+                className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='contact-form-email'
                 type='email'
                 name='email'
@@ -70,22 +70,25 @@ export default function ContactForm() {
               />
             </label>
             <label
-              className='text-gray-500 text-sm flex flex-col border-b'
+              className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
               htmlFor='contact-form-subject'
             >
               Subject:
               <input
-                className='my-2 text-black-500 text-base outline-none'
+                className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='contact-form-subject'
                 type='text'
                 name='subject'
                 required
               />
             </label>
-            <label className='text-gray-500 text-sm flex flex-col' htmlFor='contact-form-message'>
+            <label
+              className='text-gray-500 text-sm flex flex-col dark:text-gray-300'
+              htmlFor='contact-form-message'
+            >
               Message:
               <textarea
-                className='p-3 mt-4 border border-gray-300 rounded text-black-500 text-base outline-none'
+                className='p-3 mt-4 border border-gray-300 rounded text-black-500 text-base outline-none bg-transparent'
                 rows={4}
                 id='contact-form-message'
                 name='message'
