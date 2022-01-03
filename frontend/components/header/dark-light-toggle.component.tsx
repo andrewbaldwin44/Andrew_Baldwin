@@ -46,9 +46,9 @@ export default function DarkLightToggle() {
   return (
     <button onClick={toggleMode}>
       {isDarkMode ? (
-        <DarkModeIcon className={iconClasses} />
-      ) : (
         <LightModeIcon className={iconClasses} />
+      ) : (
+        <DarkModeIcon className={iconClasses} />
       )}
     </button>
   );
