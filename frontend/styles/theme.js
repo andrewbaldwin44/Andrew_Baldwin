@@ -1,4 +1,5 @@
 const tailwindcolors = require('tailwindcss/colors');
+console.log({ tailwindcolors });
 
 const colors = {
   transparent: 'transparent',
@@ -6,6 +7,7 @@ const colors = {
   black: {
     500: '#3a2e2c',
     DEFAULT: '#000',
+    600: '#181717',
   },
   black05: 'rgba(0, 0, 0, 0.5)',
 

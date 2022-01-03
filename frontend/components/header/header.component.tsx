@@ -5,6 +5,7 @@ import Image from 'next/image';
 import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
+import DarkLightToggle from 'components/header/dark-light-toggle.component';
 import styles from 'components/header/header.module.css';
 
 interface INavLink {
@@ -50,7 +51,7 @@ export default function Header() {
     {
       [styles.animateNavLinksOut]: isAnimatingOut,
       hidden: !isMenuOpen,
-      'relative z-50 h-screen bg-white top-0 right-0 h-full w-64 px-8 py-16 gap-y-8 shadow-lg bg-white flex flex-col':
+      'relative z-50 h-screen bg-white top-0 right-0 h-full w-64 px-8 py-16 gap-y-8 shadow-lg flex flex-col dark:bg-gray-900':
         isMenuOpen,
     },
   );
@@ -60,7 +61,7 @@ export default function Header() {
     hidden: !isMenuOpen,
   });
 
-  const navLinkListItemClasses = cx('relative', {
+  const navLinkListItemClasses = cx('relative dark:text-white', {
     'w-content': !isMenuOpen,
     'border-b border-gray-300 pb-6': isMenuOpen,
   });
@@ -68,7 +69,7 @@ export default function Header() {
   return (
     <>
       {isMenuOpen && !isAnimatingOut && <Dimmer />}
-      <nav className='shadow-md bg-white'>
+      <nav className='shadow-md bg-white dark:bg-gray-900'>
         <div
           className='container mx-auto flex justify-between items-center gap-x-2 p-3'
           style={{ height: 'var(--navbar-height)' }}
@@ -86,7 +87,7 @@ export default function Header() {
             </div>
           </Link>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} type='button'>
-            <HamburgerMenu className='md:hidden' height='32' />
+            <HamburgerMenu className='md:hidden dark:text-white' height='32' />
           </button>
           <ul className={navLinkWrapperClasses} onAnimationEnd={onAnimationEnd}>
             <li className={mobileMenuCloseClasses}>
@@ -107,6 +108,7 @@ export default function Header() {
             <li className={navLinkListItemClasses}>
               <NavLink href='/contact'>Contact</NavLink>
             </li>
+            <DarkLightToggle />
           </ul>
         </div>
       </nav>
