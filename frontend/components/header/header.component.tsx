@@ -20,12 +20,12 @@ function NavLink({ children, href }: INavLink) {
   );
 
   return (
-    <>
+    <div className='w-content relative'>
       <Link href={href}>
         <a>{children}</a>
       </Link>
       {router.pathname === href && NavLinkUnderline}
-    </>
+    </div>
   );
 }
 
