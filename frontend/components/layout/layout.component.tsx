@@ -9,7 +9,7 @@ const Layout = ({ children }: ILayout) => {
     <>
       <Header />
       <div className='container px-3 mx-auto'>
-        <main className='pt-8' style={{ height: 'calc(100vh - var(--navbar-height)' }}>
+        <main className='py-8' style={{ minHeight: 'calc(100vh - var(--navbar-height)' }}>
           {children}
         </main>
       </div>

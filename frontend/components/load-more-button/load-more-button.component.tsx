@@ -5,7 +5,7 @@ export interface ILoadMoreButton {
 
 export default function LoadMoreButton({ onLoadMore, isLoading }: ILoadMoreButton) {
   return (
-    <button className='btn btn-red w-64 block mx-auto mb-10' onClick={onLoadMore}>
+    <button className='btn btn-red w-64 block mx-auto' onClick={onLoadMore}>
       Load More
     </button>
   );
