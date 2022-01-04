@@ -23,7 +23,7 @@ export default function Testimonials({ testimonials }: ITestimonials) {
     <div className={testimonialGridClassnames}>
       {testimonials.map(({ student, studentImage, exercise, feedback }, index) => (
         <div
-          className='inline-block relative border border-gray-200 shadow-lg rounded-lg px-6 pt-8 pb-4 mb-20 md:mb-12 w-full dark:text-gray-300'
+          className='inline-block relative border border-gray-200 shadow-lg rounded-lg px-6 pt-8 pb-4 mt-6 mb-16 md:mb-12 w-full dark:text-gray-300'
           key={`testimonial-${index}`}
         >
           <div
