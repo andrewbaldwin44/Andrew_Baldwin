@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -6,6 +6,7 @@ import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
 import DarkLightToggle from 'components/header/dark-light-toggle.component';
+import useOnClickOutside from 'hooks/use-on-click-outside';
 import styles from 'components/header/header.module.css';
 
 interface INavLink {
@@ -35,8 +36,12 @@ function Dimmer() {
 }
 
 export default function Header() {
+  const navElement = useRef();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
+
+  useOnClickOutside(navElement, () => setIsAnimatingOut(true), { shouldAddListeners: isMenuOpen });
 
   const onAnimationEnd = () => {
     if (isAnimatingOut) {
@@ -69,7 +74,7 @@ export default function Header() {
   return (
     <>
       {isMenuOpen && !isAnimatingOut && <Dimmer />}
-      <nav className='shadow-md bg-white dark:bg-gray-900'>
+      <nav className='shadow-md bg-white dark:bg-gray-900' ref={navElement}>
         <div
           className='container mx-auto flex justify-between items-center gap-x-2 p-3'
           style={{ height: 'var(--navbar-height)' }}

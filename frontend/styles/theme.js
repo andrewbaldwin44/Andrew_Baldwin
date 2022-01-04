@@ -1,5 +1,4 @@
 const tailwindcolors = require('tailwindcss/colors');
-console.log({ tailwindcolors });
 
 const colors = {
   transparent: 'transparent',
