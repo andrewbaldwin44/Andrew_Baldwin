@@ -5,9 +5,9 @@ import Image from 'next/image';
 import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
-import DarkLightToggle from 'components/header/dark-light-toggle.component';
+import DarkLightToggle from 'components/navbar/dark-light-toggle.component';
 import useOnClickOutside from 'hooks/use-on-click-outside';
-import styles from 'components/header/header.module.css';
+import styles from 'components/navbar/navbar.module.css';
 
 interface INavLink {
   children: React.ReactChild;
@@ -35,7 +35,7 @@ function Dimmer() {
   return <div className='absolute w-screen h-screen bg-black05 md:hidden z-10' />;
 }
 
-export default function Header() {
+export default function Navbar() {
   const navElement: React.RefObject<HTMLElement> = createRef();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
