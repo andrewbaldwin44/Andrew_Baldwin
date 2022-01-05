@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { createRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -36,7 +36,7 @@ function Dimmer() {
 }
 
 export default function Header() {
-  const navElement = useRef();
+  const navElement: React.RefObject<HTMLElement> = createRef();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);

@@ -16,6 +16,15 @@
     margin-right: auto;
   }
 
+  .py-container {
+    padding-top: var(--layout-vertical-padding);
+    padding-bottom: var(--layout-vertical-padding);
+  }
+
+  .h-screen-available {
+    height: calc(100vh - var(--navbar-height) - (2 * var(--layout-vertical-padding)));
+  }
+
   .btn {
     @apply py-2 border-2 font-semibold rounded transition-colors duration-150;
   }
@@ -31,4 +40,5 @@ body {
 
 :root {
   --navbar-height: 60px;
+  --layout-vertical-padding: 2rem;
 }

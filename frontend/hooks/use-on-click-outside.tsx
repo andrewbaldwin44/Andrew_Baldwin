@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
 
-export default function useOnClickOutside(ref, handler, { shouldAddListeners }) {
+interface IUseOnClickOutsideOptions {
+  shouldAddListeners: boolean;
+}
+
+export default function useOnClickOutside(
+  ref: React.RefObject<HTMLElement>,
+  handler: (event: MouseEvent | TouchEvent) => void,
+  { shouldAddListeners }: IUseOnClickOutsideOptions,
+) {
   useEffect(() => {
     if (!shouldAddListeners) {
       return;
     }
 
-    const listener = event => {
+    const listener = (event: MouseEvent | TouchEvent) => {
       // Do nothing if clicking ref's element or descendent elements
-      if (!ref.current || ref.current.contains(event.target)) {
+      if (!ref.current || ref.current.contains(event.target as Node)) {
         return;
       }
 
