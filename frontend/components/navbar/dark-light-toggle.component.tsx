@@ -31,7 +31,6 @@ export default function DarkLightToggle() {
   }, []);
 
   const toggleMode = () => {
-    console.log({ isDarkMode });
     if (isDarkMode) {
       localStorage.theme = 'light';
       toggleLightMode();
