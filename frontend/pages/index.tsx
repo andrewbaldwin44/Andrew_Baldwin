@@ -17,7 +17,7 @@ export default function HomePage() {
           <h2 className='text-lg lg:text-2xl dark:text-gray-500'>Full Stack Web Developer</h2>
           <div className='flex justify-center gap-x-6 mt-8 lg:justify-start lg:gap-x-10'>
             <a href='https://github.com/andrewbaldwin44' rel='noopener noreferrer' target='_blank'>
-              <GithubSvg className='h-10 w-10 lg:h-12 lg:w-12 text-black-600 dark:text-black' />
+              <GithubSvg className='h-10 w-10 lg:h-12 lg:w-12 text-black-600 dark:text-gray-100' />
             </a>
             <a
               href='https://www.linkedin.com/in/andrew-baldwin44/'
