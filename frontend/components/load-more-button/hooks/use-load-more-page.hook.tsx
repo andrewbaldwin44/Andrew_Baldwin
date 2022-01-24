@@ -1,7 +1,5 @@
 import { useState, useCallback } from 'react';
 
-// interface IUseLoadMorePage
-
 export default function useLoadMorePage<TileType>({
   initialTiles,
   initialPaginationNumber,

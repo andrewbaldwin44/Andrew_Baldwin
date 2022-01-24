@@ -42,3 +42,8 @@ body {
   --navbar-height: 60px;
   --layout-vertical-padding: 2rem;
 }
+
+.dark input,
+.dark textarea {
+  caret-color: #f3f4f6;
+}
