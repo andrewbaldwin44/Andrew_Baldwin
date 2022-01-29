@@ -6,7 +6,6 @@ export interface ILoadMoreButton {
 }
 
 export default function LoadMoreButton({ onLoadMore, isLoading }: ILoadMoreButton) {
-  console.log({ isLoading });
   return (
     <button
       className='btn btn-red w-64 block h-12 mx-auto'

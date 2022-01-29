@@ -4,16 +4,12 @@ import cx from 'classnames';
 import sendEmail from 'externalRequest/email';
 import SuccessMessage from 'components/contact-form/success-message.component';
 import SendMailIcon from 'assets/send-mail';
-import styles from 'components/contact-form/contact.module.css';
+import Loader from 'components/loader/loader.component';
 
 export default function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [hasFormSubmitted, setHasFormSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-
-  const sendMailClasses = cx('h-6 w-6', {
-    [styles.sendMail]: hasFormSubmitted,
-  });
 
   const disableForm = (formElement: HTMLFormElement) => {
     const { elements } = formElement;
@@ -96,11 +92,17 @@ export default function ContactForm() {
               />
             </label>
             <button
-              className='btn btn-red flex items-center justify-center w-full md:w-64 gap-x-6 mx-auto'
+              className='btn btn-red flex items-center justify-center w-full h-12 md:w-64 gap-x-6 mx-auto'
               type='submit'
             >
-              Send
-              <SendMailIcon className={sendMailClasses} />
+              {hasFormSubmitted ? (
+                <Loader />
+              ) : (
+                <>
+                  Send
+                  <SendMailIcon className='h-6 w-6' />
+                </>
+              )}
             </button>
             {errorMessage && <p>{errorMessage}</p>}
           </form>
