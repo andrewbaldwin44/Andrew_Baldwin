@@ -1,3 +1,14 @@
+.stickyTrigger {
+  position: relative;
+  top: calc(var(--navbar-height) / 2);
+}
+
+.navbarIsSticky {
+  --navbar-height: 50px;
+
+  transition: height 580ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 .navlinks {
   position: fixed;
   transform: translateX(100%);

@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react';
+import React, { createRef, useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -6,6 +6,7 @@ import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
 import DarkLightToggle from 'components/navbar/dark-light-toggle.component';
+import useStickyElement from 'hooks/use-sticky-element.ts';
 import useOnClickOutside from 'hooks/use-on-click-outside';
 import styles from 'components/navbar/navbar.module.css';
 
@@ -43,12 +44,19 @@ export default function Navbar() {
 
   useOnClickOutside(navElement, () => setIsAnimatingOut(true), { shouldAddListeners: isMenuOpen });
 
+  const [isNavbarSticky, navbarStickyTrigger] = useStickyElement();
+
   const onAnimationEnd = () => {
     if (isAnimatingOut) {
       setIsAnimatingOut(false);
       setIsMenuOpen(false);
     }
   };
+
+  const navbarClasses = cx('shadow-md bg-white dark:bg-gray-900', {
+    [styles.navbarIsSticky]: isNavbarSticky,
+    'sticky top-0 z-10 text-sm': isNavbarSticky,
+  });
 
   const navLinkWrapperClasses = cx(
     styles.navlinks,
@@ -73,10 +81,11 @@ export default function Navbar() {
 
   return (
     <>
+      <div className={styles.stickyTrigger} ref={navbarStickyTrigger} />
       {isMenuOpen && !isAnimatingOut && <Dimmer />}
-      <nav className='shadow-md bg-white dark:bg-gray-900' ref={navElement}>
+      <nav className={navbarClasses} ref={navElement}>
         <div
-          className='container mx-auto flex justify-between items-center gap-x-2 p-3'
+          className='navbar-links-wrapper container mx-auto flex justify-between items-center gap-x-2 p-3'
           style={{ height: 'var(--navbar-height)' }}
         >
           <Link passHref href='/'>
@@ -86,8 +95,8 @@ export default function Navbar() {
                 src='/logo.png'
                 loading='eager'
                 layout='fixed'
-                width={40}
-                height={40}
+                width={isNavbarSticky ? 30 : 40}
+                height={isNavbarSticky ? 30 : 40}
               />
             </div>
           </Link>
