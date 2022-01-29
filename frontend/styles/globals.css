@@ -46,4 +46,5 @@ body {
 .dark input,
 .dark textarea {
   caret-color: #f3f4f6;
+  color: #f3f4f6;
 }
