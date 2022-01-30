@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 import fetchTestimonials from 'externalRequest/testimonials';
 import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';

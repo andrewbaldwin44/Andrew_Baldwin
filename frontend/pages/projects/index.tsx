@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 
 import fetchProjects from 'externalRequest/projects';
 import Layout from 'components/layout/layout.component';
@@ -14,15 +13,17 @@ interface IProjectsPage {
   paginationNumber: number;
 }
 
-export default function ProjectsPage({ projects, paginationNumber }: IProjectsPage) {
-  const { locale } = useRouter();
+export default function ProjectsPage({ locale, paginationNumber, projects }: IProjectsPage) {
+  const loadMoreCallback = useCallback(
+    ({ paginationNumber }) => PROJECTS_CONTROLLER.get({ paginationNumber, locale }),
+    [locale],
+  );
 
   const { onLoadMore, isLoading, loadedTiles, currentPaginationNumber } = useLoadMorePage<IProject>(
     {
       initialTiles: projects,
       initialPaginationNumber: paginationNumber,
-      loadMoreCallback: ({ paginationNumber }) =>
-        PROJECTS_CONTROLLER.get({ paginationNumber, locale }),
+      loadMoreCallback,
     },
   );
 
@@ -43,6 +44,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
   const { response, paginationNumber } = await fetchProjects({ lang: locale });
 
   return {
-    props: { projects: response, paginationNumber },
+    props: { projects: response, paginationNumber, locale },
   };
 }

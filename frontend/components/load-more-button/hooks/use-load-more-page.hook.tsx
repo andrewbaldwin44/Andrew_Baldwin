@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function useLoadMorePage<TileType>({
   initialTiles,
@@ -16,6 +16,12 @@ export default function useLoadMorePage<TileType>({
   const [isLoading, setIsLoading] = useState(false);
   const [currentPaginationNumber, setCurrentPaginationNumber] = useState(initialPaginationNumber);
 
+  useEffect(() => {
+    setLoadedTiles(initialTiles);
+    setIsLoading(false);
+    setCurrentPaginationNumber(initialPaginationNumber);
+  }, [initialTiles]);
+
   const onLoadMore = useCallback(async () => {
     setIsLoading(true);
 
@@ -27,8 +33,7 @@ export default function useLoadMorePage<TileType>({
     setCurrentPaginationNumber(newPaginationNumber);
 
     setIsLoading(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPaginationNumber]);
+  }, [currentPaginationNumber, loadMoreCallback, setLoadedTiles, setCurrentPaginationNumber]);
 
   return {
     onLoadMore,
