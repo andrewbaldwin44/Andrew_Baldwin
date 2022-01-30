@@ -15,6 +15,13 @@
       "fourOhFour": "Page Not Found"
     }
   },
+  "navbar": {
+    "navlinks": [
+      { "href": "/projects", "text": "Projects" },
+      { "href": "/testimonials", "text": "Testimonials" },
+      { "href": "/contact", "text": "Contact" }
+    ]
+  },
   "homePage": {
     "header": "Hello, I'm",
     "subheader": "Full Stack Web Developer"

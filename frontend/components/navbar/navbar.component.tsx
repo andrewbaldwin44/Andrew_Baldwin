@@ -9,6 +9,7 @@ import DarkLightToggle from 'components/navbar/dark-light-toggle.component';
 import LanguageToggle from 'components/navbar/language-toggle.component';
 import useStickyElement from 'hooks/use-sticky-element';
 import useOnClickOutside from 'hooks/use-on-click-outside';
+import { useTranslations } from 'hooks/use-translations';
 import styles from 'components/navbar/navbar.module.css';
 
 interface INavLink {
@@ -38,6 +39,8 @@ function Dimmer() {
 }
 
 export default function Navbar() {
+  const { getTranslations } = useTranslations();
+
   const navElement: React.RefObject<HTMLElement> = createRef();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -114,15 +117,11 @@ export default function Navbar() {
                 &#120;
               </button>
             </li>
-            <li className={navLinkListItemClasses}>
-              <NavLink href='/projects'>Projects</NavLink>
-            </li>
-            <li className={navLinkListItemClasses}>
-              <NavLink href='/testimonials'>Testimonials</NavLink>
-            </li>
-            <li className={navLinkListItemClasses}>
-              <NavLink href='/contact'>Contact</NavLink>
-            </li>
+            {getTranslations('navbar.navlinks').map(({ href, text }, index) => (
+              <li className={navLinkListItemClasses}>
+                <NavLink href={href}>{text}</NavLink>
+              </li>
+            ))}
             <li className='hidden md:block w-0.5 h-6 bg-black-500 dark:bg-gray-300' />
             <li className='flex gap-x-6'>
               <LanguageToggle />

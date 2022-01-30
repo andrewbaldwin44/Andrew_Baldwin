@@ -1,38 +1,45 @@
 {
   "seo": {
     "title": {
-      "home": "Home",
-      "projects": "Projects",
-      "testimonials": "Testimonials",
-      "contact": "Contact Me",
-      "fourOhFour": "404: Page Not Found"
+      "home": "Accueil",
+      "projects": "Projets",
+      "testimonials": "Témoignages",
+      "contact": "Contactez-moi",
+      "fourOhFour": "404: Page non trouvée"
     },
     "description": {
-      "home": "My website detailing my work!",
-      "projects": "My projects",
-      "testimonials": "My testimonials",
-      "contact": "Send me a message!",
-      "fourOhFour": "Page Not Found"
+      "home": "Mon site web détaillant mon travail !",
+      "projects": "Mes projets",
+      "testimonials": "Mes témoignages",
+      "contact": "Envoyez-moi un message!",
+      "fourOhFour": "Page non trouvée"
     }
   },
+  "navbar": {
+    "navlinks": [
+      { "href": "/projects", "text": "Projets" },
+      { "href": "/testimonials", "text": "Témoignages" },
+      { "href": "/contact", "text": "Contactez" }
+    ]
+  },
   "homePage": {
-    "header": "Hello, I'm",
-    "subheader": "Full Stack Web Developer"
+    "header": "Bonjour je suis",
+    "subheader": "Développeur Web Full-Stack"
   },
   "testimonialsPage": {
-    "signature": "- @<%= student %> on <%= exercise %>"
+    "signature": "- @<%= student %> sur <%= exercice %>"
   },
   "contactPage": {
-    "header": "Send Me a Message!",
-    "name": "Name:",
-    "email": "Email:",
-    "subject": "Subject:",
+    "header": "Envoyez-moi un message!",
+    "name": "Nom:",
+    "email": "Courriel:",
+    "subject": "Sujet:",
     "message": "Message:",
-    "send": "Send"
+    "send": "Envoyer"
   },
   "fourOhFourPage": {
-    "header": "404: Page Not Found",
-    "message": "You just hit a route that doesn't exist... the sadness",
-    "backHome": "Go Back Home"
+    "header": "404: Page non trouvée",
+    "message": "Vous se trouve sur une route qui n'existe pas... la tristesse",
+    "backHome": "Retourner à l'accueil"
   }
 }
