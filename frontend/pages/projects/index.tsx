@@ -28,7 +28,7 @@ export default function ProjectsPage({ projects, paginationNumber }: IProjectsPa
 
   return (
     <Layout>
-      <SEO title='Projects' />
+      <SEO seoTranslationKey='projects' />
       {projects && <Projects projects={loadedTiles} />}
       <>
         {!!currentPaginationNumber && (

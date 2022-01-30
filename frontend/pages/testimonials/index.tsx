@@ -23,7 +23,7 @@ export default function TestimonialsPage({ testimonials, paginationNumber }: ITe
 
   return (
     <Layout>
-      <SEO title='Testimonials' />
+      <SEO seoTranslationKey='testimonials' />
       {testimonials && <Testimonials testimonials={loadedTiles} />}
       <>
         {!!currentPaginationNumber && (

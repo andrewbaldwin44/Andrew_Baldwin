@@ -6,6 +6,7 @@ import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
 import DarkLightToggle from 'components/navbar/dark-light-toggle.component';
+import LanguageToggle from 'components/navbar/language-toggle.component';
 import useStickyElement from 'hooks/use-sticky-element';
 import useOnClickOutside from 'hooks/use-on-click-outside';
 import styles from 'components/navbar/navbar.module.css';
@@ -60,7 +61,7 @@ export default function Navbar() {
 
   const navLinkWrapperClasses = cx(
     styles.navlinks,
-    'flex gap-x-16 md:flex md:static md:flex-row md:shadow-none md:w-min md:p-0 md:items-center',
+    'flex gap-x-14 md:flex md:static md:flex-row md:shadow-none md:w-min md:p-0 md:items-center mr-8',
     {
       [styles.animateNavLinksOut]: isAnimatingOut,
       hidden: !isMenuOpen,
@@ -122,7 +123,12 @@ export default function Navbar() {
             <li className={navLinkListItemClasses}>
               <NavLink href='/contact'>Contact</NavLink>
             </li>
-            <DarkLightToggle />
+            <li className='hidden md:block w-0.5 h-6 bg-black-500 dark:bg-gray-300' />
+            <li className='flex gap-x-6'>
+              <LanguageToggle />
+              <div className='border-black-500 dark:border-gray-300 border-l md:hidden' />
+              <DarkLightToggle />
+            </li>
           </ul>
         </div>
       </nav>

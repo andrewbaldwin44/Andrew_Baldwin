@@ -1,1 +1,38 @@
-{}
+{
+  "seo": {
+    "title": {
+      "home": "Home",
+      "projects": "Projects",
+      "testimonials": "Testimonials",
+      "contact": "Contact Me",
+      "fourOhFour": "404: Page Not Found"
+    },
+    "description": {
+      "home": "My website detailing my work!",
+      "projects": "My projects",
+      "testimonials": "My testimonials",
+      "contact": "Send me a message!",
+      "fourOhFour": "Page Not Found"
+    }
+  },
+  "homePage": {
+    "header": "Hello, I'm",
+    "subheader": "Full Stack Web Developer"
+  },
+  "testimonialsPage": {
+    "signature": "- @<%= student %> on <%= exercise %>"
+  },
+  "contactPage": {
+    "header": "Send Me a Message!",
+    "name": "Name:",
+    "email": "Email:",
+    "subject": "Subject:",
+    "message": "Message:",
+    "send": "Send"
+  },
+  "fourOhFourPage": {
+    "header": "404: Page Not Found",
+    "message": "You just hit a route that doesn't exist... the sadness",
+    "backHome": "Go Back Home"
+  }
+}

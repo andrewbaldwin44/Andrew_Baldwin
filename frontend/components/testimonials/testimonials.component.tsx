@@ -4,6 +4,7 @@ import styles from 'components/testimonials/testimonials.module.css';
 import LoadMoreButton, {
   ILoadMoreButton,
 } from 'components/load-more-button/load-more-button.component';
+import { useTranslations } from 'hooks/use-translations';
 
 export interface ITestimonial {
   student: string;
@@ -17,6 +18,8 @@ interface ITestimonials {
 }
 
 export default function Testimonials({ testimonials }: ITestimonials) {
+  const { getTranslations } = useTranslations();
+
   const testimonialGridClassnames = cx(styles.testimonialGrid, 'mt-8 lg:mt-16 gap-x-10');
 
   return (
@@ -34,9 +37,7 @@ export default function Testimonials({ testimonials }: ITestimonials) {
           />
           <p>{feedback}</p>
           <div className='mt-3'>
-            <span>{`- @${student}`}</span>
-            <span>{' on '}</span>
-            <span>{exercise}</span>
+            <span>{getTranslations('testimonialsPage.signature', { student, exercise })}</span>
           </div>
         </div>
       ))}

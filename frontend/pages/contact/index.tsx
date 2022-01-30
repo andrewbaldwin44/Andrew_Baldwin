@@ -5,7 +5,7 @@ import ContactForm from 'components/contact-form/contact-form.component';
 export default function ContactPage() {
   return (
     <Layout>
-      <SEO title='Contact' />
+      <SEO seoTranslationKey='contact' />
       <ContactForm />
     </Layout>
   );

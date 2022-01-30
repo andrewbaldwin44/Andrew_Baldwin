@@ -5,8 +5,11 @@ import sendEmail from 'externalRequest/email';
 import SuccessMessage from 'components/contact-form/success-message.component';
 import SendMailIcon from 'assets/send-mail';
 import Loader from 'components/loader/loader.component';
+import { useTranslations } from 'hooks/use-translations';
 
 export default function ContactForm() {
+  const { getTranslations } = useTranslations();
+
   const [success, setSuccess] = useState(false);
   const [hasFormSubmitted, setHasFormSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -38,12 +41,14 @@ export default function ContactForm() {
       ) : (
         <>
           <form className='flex flex-col gap-y-8' onSubmit={onSubmit}>
-            <h1 className='text-center text-2xl dark:text-gray-100'>Send Me a Message!</h1>
+            <h1 className='text-center text-2xl dark:text-gray-100'>
+              {getTranslations('contactPage.header')}
+            </h1>
             <label
               className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
               htmlFor='contact-form-name'
             >
-              Name:
+              {getTranslations('contactPage.name')}
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='contact-form-name'
@@ -56,7 +61,7 @@ export default function ContactForm() {
               className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
               htmlFor='contact-form-email'
             >
-              Email:
+              {getTranslations('contactPage.email')}
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='contact-form-email'
@@ -69,7 +74,7 @@ export default function ContactForm() {
               className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
               htmlFor='contact-form-subject'
             >
-              Subject:
+              {getTranslations('contactPage.subject')}
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='contact-form-subject'
@@ -82,7 +87,7 @@ export default function ContactForm() {
               className='text-gray-500 text-sm flex flex-col dark:text-gray-300'
               htmlFor='contact-form-message'
             >
-              Message:
+              {getTranslations('contactPage.message')}
               <textarea
                 className='p-3 mt-4 border border-gray-300 rounded text-black-500 text-base outline-none bg-transparent'
                 rows={4}
@@ -99,7 +104,7 @@ export default function ContactForm() {
                 <Loader />
               ) : (
                 <>
-                  Send
+                  {getTranslations('contactPage.send')}
                   <SendMailIcon className='h-6 w-6' />
                 </>
               )}
