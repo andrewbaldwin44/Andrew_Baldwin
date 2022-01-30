@@ -3,7 +3,7 @@ import 'styles/globals.css';
 
 interface IApp {
   Component: React.ElementType;
-  pageProps: { [key: string]: any };
+  pageProps: Record<string, unknown>;
 }
 
 export default function App({ Component, pageProps }: IApp) {

@@ -1,4 +1,4 @@
-import React, { createRef, useState, useEffect, useMemo } from 'react';
+import React, { createRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -85,7 +85,10 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={styles.stickyTrigger} ref={navbarStickyTrigger as React.RefObject<any>} />
+      <div
+        className={styles.stickyTrigger}
+        ref={navbarStickyTrigger as React.RefObject<HTMLDivElement>}
+      />
       {isMenuOpen && !isAnimatingOut && <Dimmer />}
       <nav className={navbarClasses} ref={navElement}>
         <div
@@ -117,11 +120,13 @@ export default function Navbar() {
                 &#120;
               </button>
             </li>
-            {getTranslations('navbar.navlinks').map(({ href, text }, index) => (
-              <li className={navLinkListItemClasses}>
-                <NavLink href={href}>{text}</NavLink>
-              </li>
-            ))}
+            {getTranslations('navbar.navlinks').map(
+              ({ href, text }: { href: string; text: string }, index: number) => (
+                <li key={`navlink-${index}`} className={navLinkListItemClasses}>
+                  <NavLink href={href}>{text}</NavLink>
+                </li>
+              ),
+            )}
             <li className='hidden md:block w-0.5 h-6 bg-black-500 dark:bg-gray-300' />
             <li className='flex gap-x-6'>
               <LanguageToggle />

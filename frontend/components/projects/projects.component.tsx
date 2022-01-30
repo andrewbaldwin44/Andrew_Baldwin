@@ -1,6 +1,5 @@
 import GithubIcon from 'assets/github';
 import LinkIcon from 'assets/link';
-import colors from 'tailwindcss/colors';
 
 export interface IProject {
   demoLink: string;

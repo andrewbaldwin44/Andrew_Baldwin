@@ -11,9 +11,11 @@ const LANGUAGES = {
   fr,
 };
 
+export type Locale = keyof typeof LANGUAGES;
+
 export function useTranslations() {
   const { locale = 'en' } = useRouter();
-  const selectedLanguage = useMemo(() => LANGUAGES[locale as keyof typeof LANGUAGES], [locale]);
+  const selectedLanguage = useMemo(() => LANGUAGES[locale as Locale], [locale]);
 
   const getTranslations = useCallback(
     (path, variables?) => {

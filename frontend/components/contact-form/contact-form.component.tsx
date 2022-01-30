@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import cx from 'classnames';
 
 import sendEmail from 'externalRequest/email';
 import SuccessMessage from 'components/contact-form/success-message.component';

@@ -7,6 +7,7 @@
   "license": "GNU AFFERO GENERAL PUBLIC LICENSE",
   "scripts": {
     "dev": "yarn --cwd frontend dev",
+    "lint": "yarn ---cwd frontend lint",
     "next:encrypt": "yarn --cwd frontend encrypt",
     "next:decrypt": "yarn --cwd frontend decrypt",
     "decrypt": "npm-run-all --parallel next:decrypt",

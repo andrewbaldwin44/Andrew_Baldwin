@@ -7,6 +7,7 @@ export default function useLoadMorePage<TileType>({
 }: {
   initialTiles: TileType[];
   initialPaginationNumber: number;
+  // eslint-disable-next-line no-unused-vars
   loadMoreCallback: (paginationNumber: { paginationNumber: number }) => Promise<{
     response: TileType[];
     paginationNumber: number;
@@ -20,7 +21,7 @@ export default function useLoadMorePage<TileType>({
     setLoadedTiles(initialTiles);
     setIsLoading(false);
     setCurrentPaginationNumber(initialPaginationNumber);
-  }, [initialTiles]);
+  }, [initialTiles, initialPaginationNumber]);
 
   const onLoadMore = useCallback(async () => {
     setIsLoading(true);
@@ -33,6 +34,7 @@ export default function useLoadMorePage<TileType>({
     setCurrentPaginationNumber(newPaginationNumber);
 
     setIsLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPaginationNumber, loadMoreCallback, setLoadedTiles, setCurrentPaginationNumber]);
 
   return {

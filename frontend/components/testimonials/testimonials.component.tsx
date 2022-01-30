@@ -1,10 +1,7 @@
 import cx from 'classnames';
 
-import styles from 'components/testimonials/testimonials.module.css';
-import LoadMoreButton, {
-  ILoadMoreButton,
-} from 'components/load-more-button/load-more-button.component';
 import { useTranslations } from 'hooks/use-translations';
+import styles from 'components/testimonials/testimonials.module.css';
 
 export interface ITestimonial {
   student: string;

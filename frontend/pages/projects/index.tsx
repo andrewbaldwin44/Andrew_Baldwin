@@ -7,10 +7,12 @@ import Projects, { IProject } from 'components/projects/projects.component';
 import { PROJECTS_CONTROLLER } from 'externalRequest/controllers/projects';
 import LoadMoreButton from 'components/load-more-button/load-more-button.component';
 import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
+import { Locale } from 'hooks/use-translations';
 
 interface IProjectsPage {
   projects: IProject[];
   paginationNumber: number;
+  locale: Locale;
 }
 
 export default function ProjectsPage({ locale, paginationNumber, projects }: IProjectsPage) {
@@ -40,7 +42,7 @@ export default function ProjectsPage({ locale, paginationNumber, projects }: IPr
   );
 }
 
-export async function getStaticProps({ locale }: { locale: string }) {
+export async function getStaticProps({ locale }: { locale: Locale }) {
   const { response, paginationNumber } = await fetchProjects({ lang: locale });
 
   return {
