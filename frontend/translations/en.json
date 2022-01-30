@@ -51,5 +51,8 @@
     "link": "Link",
     "sendMail": "Send mail",
     "sentMail": "Message has been sent"
+  },
+  "buttons": {
+    "loadMore": "Load More"
   }
 }
