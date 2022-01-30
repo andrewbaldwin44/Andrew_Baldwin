@@ -16,7 +16,7 @@ export function useTranslations() {
   const selectedLanguage = useMemo(() => LANGUAGES[locale as keyof typeof LANGUAGES], [locale]);
 
   const getTranslations = useCallback(
-    (path, variables) => {
+    (path, variables?) => {
       const translation = objectPath(path.split('.'), selectedLanguage);
 
       if (!translation) {
