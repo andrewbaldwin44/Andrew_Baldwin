@@ -14,7 +14,7 @@ export interface IIntersectionObserverEntryInit {
 const defaultThreshold = Array.from(Array(100).keys(), i => i / 100);
 
 const useIntersection = ({ threshold = defaultThreshold }: IUseIntersection = {}) => {
-  const node: React.Ref<HTMLElement> = useRef();
+  const node: React.RefObject<any> = useRef();
 
   const isIntersectionObserverAvailable = useMemo(
     () =>

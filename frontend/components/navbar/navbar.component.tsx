@@ -6,7 +6,7 @@ import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
 import DarkLightToggle from 'components/navbar/dark-light-toggle.component';
-import useStickyElement from 'hooks/use-sticky-element.ts';
+import useStickyElement from 'hooks/use-sticky-element';
 import useOnClickOutside from 'hooks/use-on-click-outside';
 import styles from 'components/navbar/navbar.module.css';
 
@@ -81,7 +81,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={styles.stickyTrigger} ref={navbarStickyTrigger} />
+      <div className={styles.stickyTrigger} ref={navbarStickyTrigger as React.RefObject<any>} />
       {isMenuOpen && !isAnimatingOut && <Dimmer />}
       <nav className={navbarClasses} ref={navElement}>
         <div
