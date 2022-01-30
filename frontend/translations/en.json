@@ -35,11 +35,21 @@
     "email": "Email:",
     "subject": "Subject:",
     "message": "Message:",
-    "send": "Send"
+    "send": "Send",
+    "emailSent": "Email successfully sent!",
+    "emailSentThanks": "Thanks for reaching out!"
   },
   "fourOhFourPage": {
     "header": "404: Page Not Found",
     "message": "You just hit a route that doesn't exist... the sadness",
     "backHome": "Go Back Home"
+  },
+  "assets": {
+    "darkMode": "Turn on dark mode",
+    "lightMode": "Turn on light mode",
+    "menu": "Open menu",
+    "link": "Link",
+    "sendMail": "Send mail",
+    "sentMail": "Message has been sent"
   }
 }

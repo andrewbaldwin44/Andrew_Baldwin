@@ -1,6 +1,9 @@
 import { IAsset } from 'assets/types';
+import { useTranslations } from 'hooks/use-translations';
 
 export default function SentMail({ className }: IAsset) {
+  const { getTranslations } = useTranslations();
+
   return (
     <svg
       version='1.0'
@@ -14,6 +17,7 @@ export default function SentMail({ className }: IAsset) {
         fill='currentColor'
         stroke='none'
       >
+        <title>{getTranslations('assets.sentMail')}</title>
         <path
           d='M1158 3871 c-73 -24 -112 -49 -169 -108 -92 -96 -119 -175 -119 -346
     0 -148 22 -187 104 -187 25 0 45 9 68 29 l32 28 5 128 6 128 572 -489 c314

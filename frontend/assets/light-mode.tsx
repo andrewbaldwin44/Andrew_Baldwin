@@ -1,6 +1,9 @@
 import { IAsset } from 'assets/types';
+import { useTranslations } from 'hooks/use-translations';
 
 export default function LightModeIcon({ className }: IAsset) {
+  const { getTranslations } = useTranslations();
+
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -9,6 +12,7 @@ export default function LightModeIcon({ className }: IAsset) {
       viewBox='0 0 24 24'
       stroke='currentColor'
     >
+      <title>{getTranslations('assets.lightMode')}</title>
       <path
         strokeLinecap='round'
         strokeLinejoin='round'

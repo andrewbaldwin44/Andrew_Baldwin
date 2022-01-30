@@ -1,6 +1,9 @@
 import { IAsset } from 'assets/types';
+import { useTranslations } from 'hooks/use-translations';
 
 export default function SendMailIcon({ className }: IAsset) {
+  const { getTranslations } = useTranslations();
+
   return (
     <svg
       version='1.0'
@@ -9,6 +12,7 @@ export default function SendMailIcon({ className }: IAsset) {
       preserveAspectRatio='xMidYMid meet'
       className={className}
     >
+      <title>{getTranslations('assets.sendMail')}</title>
       <g
         transform='translate(0.000000,512.000000) scale(0.100000,-0.100000)'
         fill='currentColor'

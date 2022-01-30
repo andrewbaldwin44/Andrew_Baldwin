@@ -35,11 +35,21 @@
     "email": "Courriel:",
     "subject": "Sujet:",
     "message": "Message:",
-    "send": "Envoyer"
+    "send": "Envoyer",
+    "emailSent": "Courriel envoyé avec succès !",
+    "emailSentThanks": "Merci de m'avoir contacté !"
   },
   "fourOhFourPage": {
     "header": "404: Page non trouvée",
     "message": "Vous se trouve sur une route qui n'existe pas... la tristesse",
     "backHome": "Retourner à l'accueil"
+  },
+  "assets": {
+    "darkMode": "Activer le mode de nuit",
+    "lightMode": "Activer le mode du jour",
+    "menu": "Ouvre le menu",
+    "link": "Lien",
+    "sendMail": "Envoyer un courriel",
+    "sentMail": "Le courrier a été envoyé"
   }
 }

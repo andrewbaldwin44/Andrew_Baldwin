@@ -1,6 +1,9 @@
 import { IAsset } from 'assets/types';
+import { useTranslations } from 'hooks/use-translations';
 
 export default function LinkIcon({ className }: IAsset) {
+  const { getTranslations } = useTranslations();
+
   return (
     <svg
       className={className}
@@ -9,6 +12,7 @@ export default function LinkIcon({ className }: IAsset) {
       fill='none'
       stroke='currentColor'
     >
+      <title>{getTranslations('assets.link')}</title>
       <path
         strokeLinecap='round'
         strokeLinejoin='round'
