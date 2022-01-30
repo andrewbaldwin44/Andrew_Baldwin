@@ -64,7 +64,7 @@ export default function Navbar() {
 
   const navLinkWrapperClasses = cx(
     styles.navlinks,
-    'flex gap-x-14 md:flex md:static md:flex-row md:shadow-none md:w-min md:p-0 md:items-center mr-8',
+    'flex md:gap-x-6 md:flex md:static md:flex-row md:shadow-none md:w-min md:p-0 md:items-center lg:gap-x-14',
     {
       [styles.animateNavLinksOut]: isAnimatingOut,
       hidden: !isMenuOpen,
@@ -128,7 +128,7 @@ export default function Navbar() {
               ),
             )}
             <li className='hidden md:block w-0.5 h-6 bg-black-500 dark:bg-gray-300' />
-            <li className='flex gap-x-6'>
+            <li className='flex gap-x-6 lg:gap-x-10'>
               <LanguageToggle />
               <div className='border-black-500 dark:border-gray-300 border-l md:hidden' />
               <DarkLightToggle />
