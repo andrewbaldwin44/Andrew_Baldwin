@@ -1,0 +1,2 @@
+# Allow search crawlers to discover the sitemap.
+Sitemap: https://www.andrewbaldwin.dev/sitemap.xml
