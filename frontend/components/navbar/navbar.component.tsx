@@ -111,15 +111,17 @@ export default function Navbar() {
             <HamburgerMenu className='md:hidden dark:text-gray-100' height='32' />
           </button>
           <ul className={navLinkWrapperClasses} onAnimationEnd={onAnimationEnd}>
-            <li className={mobileMenuCloseClasses}>
-              <button
-                className='text-3xl text-red'
-                onClick={() => setIsAnimatingOut(true)}
-                type='button'
-              >
-                &#120;
-              </button>
-            </li>
+            {isMenuOpen && !isAnimatingOut && (
+              <li className={mobileMenuCloseClasses}>
+                <button
+                  className='text-3xl text-red'
+                  onClick={() => setIsAnimatingOut(true)}
+                  type='button'
+                >
+                  &#120;
+                </button>
+              </li>
+            )}
             {getTranslations('navbar.navlinks').map(
               ({ href, text }: { href: string; text: string }, index: number) => (
                 <li key={`navlink-${index}`} className={navLinkListItemClasses}>
