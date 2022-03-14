@@ -41,7 +41,7 @@ function Dimmer() {
 export default function Navbar() {
   const { getTranslations } = useTranslations();
 
-  const navElement: React.RefObject<HTMLElement> = useRef();
+  const navElement: React.RefObject<HTMLElement> = useRef(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
