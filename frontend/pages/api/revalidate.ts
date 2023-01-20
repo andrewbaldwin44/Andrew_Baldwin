@@ -1,9 +1,20 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+interface IRevalidateHandlerRequest extends NextApiRequest {
+  query: {
+    token?: string;
+    pathname?: string;
+  };
+}
+
 export default async function handler(
-  { query: { token, pathname } }: NextApiRequest,
+  { query: { token, pathname } }: IRevalidateHandlerRequest,
   res: NextApiResponse,
 ) {
+  if (!token || !pathname) {
+    return res.status(401).json({ message: 'Access Denied: Insufficient Paramaters' });
+  }
+
   if (token !== process.env.NEXT_REVALIDATE_TOKEN) {
     return res.status(401).json({ message: 'Access Denied: Invalid token' });
   }
