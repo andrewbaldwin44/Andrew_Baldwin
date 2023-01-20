@@ -6,12 +6,12 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'localeString',
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'localeText',
     },
     {
       name: 'githubLink',
@@ -43,7 +43,11 @@ export default {
   preview: {
     select: {
       title: 'title',
-      media: 'image',
+      image: 'image',
     },
+    prepare: ({ title, image }) => ({
+      title: title ? title['en'] : null,
+      media: image,
+    }),
   },
 };
