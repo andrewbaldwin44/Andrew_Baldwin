@@ -14,14 +14,8 @@ export default function ContactForm() {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const disableForm = (formElement: HTMLFormElement) => {
-    const { elements } = formElement;
-
-    for (let i = 0; i < elements.length; i++) {
-      (elements[i] as HTMLInputElement).readOnly = true;
-      (elements[i] as HTMLInputElement).disabled = true;
-    }
-
     formElement.style.opacity = '0.6';
+    formElement.style.pointerEvents = 'none';
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
