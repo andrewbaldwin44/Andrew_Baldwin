@@ -45,12 +45,12 @@ export default function ContactForm() {
             </h1>
             <label
               className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
-              htmlFor='contact-form-name'
+              htmlFor='name'
             >
               {getTranslations('contactPage.name')}
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
-                id='contact-form-name'
+                id='name'
                 type='text'
                 name='name'
                 required
@@ -58,12 +58,12 @@ export default function ContactForm() {
             </label>
             <label
               className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
-              htmlFor='contact-form-email'
+              htmlFor='email'
             >
               {getTranslations('contactPage.email')}
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
-                id='contact-form-email'
+                id='email'
                 type='email'
                 name='email'
                 required
@@ -71,12 +71,12 @@ export default function ContactForm() {
             </label>
             <label
               className='text-gray-500 text-sm flex flex-col border-b dark:text-gray-300'
-              htmlFor='contact-form-subject'
+              htmlFor='subject'
             >
               {getTranslations('contactPage.subject')}
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
-                id='contact-form-subject'
+                id='subject'
                 type='text'
                 name='subject'
                 required
@@ -84,13 +84,13 @@ export default function ContactForm() {
             </label>
             <label
               className='text-gray-500 text-sm flex flex-col dark:text-gray-300'
-              htmlFor='contact-form-message'
+              htmlFor='message'
             >
               {getTranslations('contactPage.message')}
               <textarea
                 className='p-3 mt-4 border border-gray-300 rounded text-black-500 text-base outline-none bg-transparent'
                 rows={4}
-                id='contact-form-message'
+                id='message'
                 name='message'
                 required
               />
