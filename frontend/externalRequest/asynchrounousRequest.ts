@@ -46,10 +46,7 @@ export async function asynchrounousRequest(
 ) {
   const queryString = formatQueryString(query);
 
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FRONTEND_URL}api/${request}${queryString}`,
-    getRequestHeaders({ type, body }),
-  );
+  const response = await fetch(`api/${request}${queryString}`, getRequestHeaders({ type, body }));
 
   const jsonResponse = await response.json();
 
