@@ -26,9 +26,7 @@ function NavLink({ children, href }: INavLink) {
 
   return (
     <div className='w-content relative'>
-      <Link href={href}>
-        <a>{children}</a>
-      </Link>
+      <Link href={href}>{children}</Link>
       {router.pathname === href && NavLinkUnderline}
     </div>
   );
@@ -95,13 +93,12 @@ export default function Navbar() {
           className='navbar-links-wrapper container mx-auto flex justify-between items-center gap-x-2 p-3'
           style={{ height: 'var(--navbar-height)' }}
         >
-          <Link passHref href='/'>
+          <Link passHref href='/' legacyBehavior>
             <div className='flex cursor-pointer'>
               <Image
                 alt='Logo'
                 src='/logo.png'
                 loading='eager'
-                layout='fixed'
                 width={isNavbarSticky ? 30 : 40}
                 height={isNavbarSticky ? 30 : 40}
               />

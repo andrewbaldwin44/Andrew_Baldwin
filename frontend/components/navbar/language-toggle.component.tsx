@@ -17,8 +17,13 @@ export default function LanguageToggle() {
         }
 
         return (
-          <Link key={action.code} href={pathname} locale={action.code}>
-            <a className='dark:text-gray-100'>{action.name}</a>
+          <Link
+            key={action.code}
+            href={pathname}
+            locale={action.code}
+            className='dark:text-gray-100'
+          >
+            {action.name}
           </Link>
         );
       })}

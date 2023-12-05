@@ -14,11 +14,10 @@
     "@emailjs/browser": "^3.11.0",
     "@sanity/client": "^2.23.2",
     "classnames": "^2.3.1",
-    "next": "12.2.0",
-    "next-seo": "^4.28.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "sharp": "^0.29.3"
+    "next": "14.0.3",
+    "next-seo": "^6.4.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "17.0.5",
@@ -34,6 +33,6 @@
     "typescript": "^4.5.5"
   },
   "engines": {
-    "node": "14.x"
+    "node": ">=18.0.0"
   }
 }
