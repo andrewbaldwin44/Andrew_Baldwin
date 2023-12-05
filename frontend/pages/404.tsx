@@ -10,7 +10,7 @@ export default function FourOhFour() {
   return (
     <Layout>
       <div className='dark:text-gray-100'>
-        <SEO seoTranslationKey='fourOhFour' noindex nofollow />
+        <SEO nofollow noindex seoTranslationKey='fourOhFour' />
         <h1>{getTranslations('fourOhFourPage.header')}</h1>
         <p>{getTranslations('fourOhFourPage.message')}</p>
         <Link href='/' legacyBehavior>

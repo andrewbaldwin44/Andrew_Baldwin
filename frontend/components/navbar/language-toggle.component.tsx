@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const languages = [
   { name: 'English', code: 'en' },
@@ -18,10 +18,10 @@ export default function LanguageToggle() {
 
         return (
           <Link
-            key={action.code}
-            href={pathname}
-            locale={action.code}
             className='dark:text-gray-100'
+            href={pathname}
+            key={action.code}
+            locale={action.code}
           >
             {action.name}
           </Link>

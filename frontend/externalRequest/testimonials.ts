@@ -4,7 +4,6 @@ import cmsRequest, {
   CMS_ENTRIES,
   CMS_PAGINATION,
 } from 'externalRequest/cmsRequest';
-import { asynchrounousRequest } from 'externalRequest/asynchrounousRequest';
 
 const TESTIMONIALS_QUERY = `
   *[_type == "testimonial"] {
@@ -23,6 +22,7 @@ export default async function fetchTestimonials(
 
     return cmsRequestResponse(testimonials, CMS_ENTRIES.TESTIMONIALS, paginationNumber);
   } catch ({ message }) {
+    // eslint-disable-next-line no-console
     console.error('Testimonials CMS Request Failed:', message);
 
     return { response: null, paginationNumber: null };

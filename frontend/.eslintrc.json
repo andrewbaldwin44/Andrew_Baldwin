@@ -1,10 +1,42 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier", "unused-imports", "import", "react-hooks"],
   "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "unused-imports/no-unused-imports": "error",
     "no-console": "error",
-    "no-unused-vars": "error",
-    "import/newline-after-import": ["error", { "count": 1 }]
+    "react/jsx-sort-props": 2,
+    "react/sort-prop-types": 2,
+    "import/order": [
+      "error",
+      {
+        "groups": ["external", "internal"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "App",
+            "group": "internal"
+          },
+          {
+            "pattern": "Report",
+            "group": "internal"
+          },
+          {
+            "pattern": "{assets,components,externalRequest,hooks,pages,styles,translations,utils}/**",
+            "group": "internal"
+          }
+        ],
+        "distinctGroup": false,
+        "pathGroupsExcludedImportTypes": ["internal"]
+      }
+    ]
   }
 }

@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 
-import fetchProjects from 'externalRequest/projects';
 import Layout from 'components/layout/layout.component';
-import SEO from 'components/seo';
-import Projects, { IProject } from 'components/projects/projects.component';
-import { PROJECTS_CONTROLLER } from 'externalRequest/controllers/projects';
-import LoadMoreButton from 'components/load-more-button/load-more-button.component';
 import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
+import LoadMoreButton from 'components/load-more-button/load-more-button.component';
+import Projects, { IProject } from 'components/projects/projects.component';
+import SEO from 'components/seo';
+import { PROJECTS_CONTROLLER } from 'externalRequest/controllers/projects';
+import fetchProjects from 'externalRequest/projects';
 import { Locale } from 'hooks/use-translations';
 
 interface IProjectsPage {
@@ -35,7 +35,7 @@ export default function ProjectsPage({ locale, paginationNumber, projects }: IPr
       {projects && <Projects projects={loadedTiles} />}
       <>
         {!!currentPaginationNumber && (
-          <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />
+          <LoadMoreButton isLoading={isLoading} onLoadMore={onLoadMore} />
         )}
       </>
     </Layout>

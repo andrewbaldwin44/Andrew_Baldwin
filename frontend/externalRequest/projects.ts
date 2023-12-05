@@ -4,7 +4,6 @@ import cmsRequest, {
   CMS_ENTRIES,
   CMS_PAGINATION,
 } from 'externalRequest/cmsRequest';
-import { asynchrounousRequest } from 'externalRequest/asynchrounousRequest';
 
 const PROJECTS_QUERY = `
   *[_type == "project"] {
@@ -26,6 +25,7 @@ export default async function fetchProjects({
 
     return cmsRequestResponse(projects, CMS_ENTRIES.PROJECTS, paginationNumber);
   } catch ({ message }) {
+    // eslint-disable-next-line no-console
     console.error('Projects CMS Request Failed:', message);
 
     return { response: null, paginationNumber: null };

@@ -6,17 +6,17 @@ export default function SendMailIcon({ className }: IAsset) {
 
   return (
     <svg
-      version='1.0'
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 512.000000 512.000000'
-      preserveAspectRatio='xMidYMid meet'
       className={className}
+      preserveAspectRatio='xMidYMid meet'
+      version='1.0'
+      viewBox='0 0 512.000000 512.000000'
+      xmlns='http://www.w3.org/2000/svg'
     >
       <title>{getTranslations('assets.sendMail')}</title>
       <g
-        transform='translate(0.000000,512.000000) scale(0.100000,-0.100000)'
         fill='currentColor'
         stroke='none'
+        transform='translate(0.000000,512.000000) scale(0.100000,-0.100000)'
       >
         <path
           d='M4655 4676 c-148 -57 -1233 -471 -2410 -921 -1177 -449 -2153 -824

@@ -1,7 +1,7 @@
 import cx from 'classnames';
 
-import { useTranslations } from 'hooks/use-translations';
 import styles from 'components/testimonials/testimonials.module.css';
+import { useTranslations } from 'hooks/use-translations';
 
 export interface ITestimonial {
   student: string;

@@ -2,8 +2,8 @@ import emailjs from '@emailjs/browser';
 
 export default function sendEmail(
   formElement: HTMLFormElement,
-  successCallback: Function,
-  errorCallback: Function,
+  successCallback: (payload: boolean) => void,
+  errorCallback: (payload: any) => void,
 ) {
   process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID &&
     process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID &&

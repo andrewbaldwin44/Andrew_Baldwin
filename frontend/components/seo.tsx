@@ -13,10 +13,10 @@ function SEO({ seoTranslationKey, noindex = false, nofollow = false }: ISEO) {
 
   return (
     <NextSeo
-      title={`Andrew Baldwin | ${getTranslations(`seo.title.${seoTranslationKey}`)}`}
       description={getTranslations(`seo.description.${seoTranslationKey}`)}
-      noindex={noindex}
       nofollow={nofollow}
+      noindex={noindex}
+      title={`Andrew Baldwin | ${getTranslations(`seo.title.${seoTranslationKey}`)}`}
     />
   );
 }

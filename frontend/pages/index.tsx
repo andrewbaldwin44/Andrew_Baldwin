@@ -1,7 +1,7 @@
-import Layout from 'components/layout/layout.component';
-import SEO from 'components/seo';
 import GithubSvg from 'assets/github';
 import LinkedinSvg from 'assets/linkedin';
+import Layout from 'components/layout/layout.component';
+import SEO from 'components/seo';
 import TechnologyIcons from 'components/technology-icons/technology-icons.component';
 import { useTranslations } from 'hooks/use-translations';
 

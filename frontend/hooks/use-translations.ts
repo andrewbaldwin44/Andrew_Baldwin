@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useState, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 import en from 'translations/en.json';
 import fr from 'translations/fr.json';
-
 import { objectPath, templateString, TEMPLATE_STRING_MATCH } from 'utils/string';
 
 const LANGUAGES = {

@@ -1,5 +1,4 @@
 import Loader from 'components/loader/loader.component';
-
 import { useTranslations } from 'hooks/use-translations';
 
 export interface ILoadMoreButton {
@@ -13,8 +12,8 @@ export default function LoadMoreButton({ onLoadMore, isLoading }: ILoadMoreButto
   return (
     <button
       className='btn btn-red w-64 block h-12 mx-auto'
-      onClick={onLoadMore}
       disabled={isLoading}
+      onClick={onLoadMore}
     >
       {isLoading ? <Loader /> : getTranslations('buttons.loadMore')}
     </button>

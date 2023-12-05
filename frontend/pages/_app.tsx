@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: IApp) {
   return (
     <>
       <Head>
-        <link rel='shortcut icon' href='/favicon-32x32.png' />
+        <link href='/favicon-32x32.png' rel='shortcut icon' />
       </Head>
       <Component {...pageProps} />
     </>

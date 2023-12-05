@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import sendEmail from 'externalRequest/email';
-import SuccessMessage from 'components/contact-form/success-message.component';
 import SendMailIcon from 'assets/send-mail';
+import SuccessMessage from 'components/contact-form/success-message.component';
 import Loader from 'components/loader/loader.component';
+import sendEmail from 'externalRequest/email';
 import { useTranslations } from 'hooks/use-translations';
 
 export default function ContactForm() {
@@ -45,9 +45,9 @@ export default function ContactForm() {
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='name'
-                type='text'
                 name='name'
                 required
+                type='text'
               />
             </label>
             <label
@@ -58,9 +58,9 @@ export default function ContactForm() {
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='email'
-                type='email'
                 name='email'
                 required
+                type='email'
               />
             </label>
             <label
@@ -71,9 +71,9 @@ export default function ContactForm() {
               <input
                 className='my-2 text-black-500 text-base outline-none bg-transparent'
                 id='subject'
-                type='text'
                 name='subject'
                 required
+                type='text'
               />
             </label>
             <label
@@ -83,10 +83,10 @@ export default function ContactForm() {
               {getTranslations('contactPage.message')}
               <textarea
                 className='p-3 mt-4 border border-gray-300 rounded text-black-500 text-base outline-none bg-transparent'
-                rows={4}
                 id='message'
                 name='message'
                 required
+                rows={4}
               />
             </label>
             <button

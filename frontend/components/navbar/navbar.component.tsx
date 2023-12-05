@@ -1,16 +1,16 @@
 import React, { useRef, useState } from 'react';
+import cx from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
-import cx from 'classnames';
 
 import HamburgerMenu from 'assets/hamburger-menu';
 import DarkLightToggle from 'components/navbar/dark-light-toggle.component';
 import LanguageToggle from 'components/navbar/language-toggle.component';
-import useStickyElement from 'hooks/use-sticky-element';
-import useOnClickOutside from 'hooks/use-on-click-outside';
-import { useTranslations } from 'hooks/use-translations';
 import styles from 'components/navbar/navbar.module.css';
+import useOnClickOutside from 'hooks/use-on-click-outside';
+import useStickyElement from 'hooks/use-sticky-element';
+import { useTranslations } from 'hooks/use-translations';
 
 interface INavLink {
   children: React.ReactChild;
@@ -93,14 +93,14 @@ export default function Navbar() {
           className='navbar-links-wrapper container mx-auto flex justify-between items-center gap-x-2 p-3'
           style={{ height: 'var(--navbar-height)' }}
         >
-          <Link passHref href='/' legacyBehavior>
+          <Link href='/' legacyBehavior passHref>
             <div className='flex cursor-pointer'>
               <Image
                 alt='Logo'
-                src='/logo.png'
-                loading='eager'
-                width={isNavbarSticky ? 30 : 40}
                 height={isNavbarSticky ? 30 : 40}
+                loading='eager'
+                src='/logo.png'
+                width={isNavbarSticky ? 30 : 40}
               />
             </div>
           </Link>
@@ -121,7 +121,7 @@ export default function Navbar() {
             )}
             {getTranslations('navbar.navlinks').map(
               ({ href, text }: { href: string; text: string }, index: number) => (
-                <li key={`navlink-${index}`} className={navLinkListItemClasses}>
+                <li className={navLinkListItemClasses} key={`navlink-${index}`}>
                   <NavLink href={href}>{text}</NavLink>
                 </li>
               ),

@@ -18,12 +18,12 @@ export default function Projects({ projects }: IProjects) {
     <div className='flex flex-wrap md:grid grid-cols-2 lg:grid-cols-3 gap-x-10'>
       {projects.map(({ title, imageUrl, githubLink, demoLink, description }, index: number) => (
         <div
-          key={`project-${index}`}
           className='w-full max-h-full my-10 border border-gray-300 shadow-lg rounded pb-6 lg:flex lg:flex-col'
+          key={`project-${index}`}
         >
           <div
-            style={{ backgroundImage: `url("${imageUrl}")` }}
             className='w-full min-w-full h-52 lg:h-80 bg-cover bg-no-repeat bg-center rounded-t'
+            style={{ backgroundImage: `url("${imageUrl}")` }}
           />
           <div className='px-6 py-4 lg:px-8 xl:px-14 lg:flex lg:flex-col lg:flex-1 lg:justify-between'>
             <div>

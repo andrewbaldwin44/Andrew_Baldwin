@@ -1,10 +1,10 @@
-import fetchTestimonials from 'externalRequest/testimonials';
 import Layout from 'components/layout/layout.component';
+import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
+import LoadMoreButton from 'components/load-more-button/load-more-button.component';
 import SEO from 'components/seo';
 import Testimonials, { ITestimonial } from 'components/testimonials/testimonials.component';
 import { TESTIMONIALS_CONTROLLER } from 'externalRequest/controllers/testimonials';
-import LoadMoreButton from 'components/load-more-button/load-more-button.component';
-import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
+import fetchTestimonials from 'externalRequest/testimonials';
 
 interface ITestimonialsPage {
   testimonials: ITestimonial[];
@@ -25,7 +25,7 @@ export default function TestimonialsPage({ testimonials, paginationNumber }: ITe
       {testimonials && <Testimonials testimonials={loadedTiles} />}
       <>
         {!!currentPaginationNumber && (
-          <LoadMoreButton onLoadMore={onLoadMore} isLoading={isLoading} />
+          <LoadMoreButton isLoading={isLoading} onLoadMore={onLoadMore} />
         )}
       </>
     </Layout>

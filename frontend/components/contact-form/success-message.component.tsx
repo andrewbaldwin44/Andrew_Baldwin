@@ -1,8 +1,8 @@
 import cx from 'classnames';
 
 import SentMailIcon from 'assets/sent-mail';
-import { useTranslations } from 'hooks/use-translations';
 import styles from 'components/contact-form/contact.module.css';
+import { useTranslations } from 'hooks/use-translations';
 
 export default function SuccessMessage() {
   const { getTranslations } = useTranslations();

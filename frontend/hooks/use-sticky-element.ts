@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react';
+import { useMemo } from 'react';
 
 import useIntersection from 'hooks/use-intersection';
 
