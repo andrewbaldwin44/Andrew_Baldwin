@@ -15,7 +15,6 @@ interface IProjects {
 }
 
 export default function Projects({ projects }: IProjects) {
-  console.log({ projects });
   return (
     <div className='flex flex-wrap md:grid grid-cols-2 lg:grid-cols-3 gap-x-10'>
       {projects.map(({ title, imageUrl, githubLink, demoLink, description }, index: number) => (
