@@ -39,6 +39,11 @@ export default {
         },
       ],
     },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    },
   ],
   preview: {
     select: {

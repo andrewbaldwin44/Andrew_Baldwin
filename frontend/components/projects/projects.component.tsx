@@ -7,6 +7,7 @@ export interface IProject {
   githubLink: string;
   imageUrl: string;
   title: string;
+  order?: number;
 }
 
 interface IProjects {

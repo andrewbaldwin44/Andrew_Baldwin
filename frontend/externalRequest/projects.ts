@@ -13,7 +13,8 @@ const PROJECTS_QUERY = `
     demoLink,
     "imageUrl": image["asset"]->["url"],
     tags,
-  }[$paginationNumber..($paginationNumber+${CMS_PAGINATION.end})]
+    order,
+  }[$paginationNumber..($paginationNumber+${CMS_PAGINATION.end})] | order(order asc)
 `;
 
 export default async function fetchProjects({
