@@ -43,15 +43,17 @@ export default function Projects({ projects }: IProjects) {
                 <LinkIcon className='w-8 h-8' />
                 <span className='w-full font-medium text-center dark:text-gray-100'>Demo</span>
               </a>
-              <a
-                className='w-32 border border-black flex items-center dark:bg-gray-700'
-                href={githubLink}
-              >
-                <GithubIcon className='w-8 h-8 mx-1 text-black-600 dark:text-gray-100' />
-                <span className='text-white bg-black w-full font-medium p-2 text-center'>
-                  GitHub
-                </span>
-              </a>
+              {githubLink && (
+                <a
+                  className='w-32 border border-black flex items-center dark:bg-gray-700'
+                  href={githubLink}
+                >
+                  <GithubIcon className='w-8 h-8 mx-1 text-black-600 dark:text-gray-100' />
+                  <span className='text-white bg-black w-full font-medium p-2 text-center'>
+                    GitHub
+                  </span>
+                </a>
+              )}
             </div>
           </div>
         </div>
