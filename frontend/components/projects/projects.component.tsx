@@ -2,9 +2,9 @@ import GithubIcon from 'assets/github';
 import LinkIcon from 'assets/link';
 
 export interface IProject {
-  demoLink: string;
+  demoLink?: string;
   description: string;
-  githubLink: string;
+  githubLink?: string;
   imageUrl: string;
   title: string;
   order?: number;
@@ -15,6 +15,7 @@ interface IProjects {
 }
 
 export default function Projects({ projects }: IProjects) {
+  console.log({ projects });
   return (
     <div className='flex flex-wrap md:grid grid-cols-2 lg:grid-cols-3 gap-x-10'>
       {projects.map(({ title, imageUrl, githubLink, demoLink, description }, index: number) => (
@@ -37,13 +38,17 @@ export default function Projects({ projects }: IProjects) {
             </div>
 
             <div className='flex justify-between'>
-              <a
-                className='w-32 border border-black flex items-center px-2 dark:text-gray-100 dark:border-gray-600'
-                href={demoLink}
-              >
-                <LinkIcon className='w-8 h-8' />
-                <span className='w-full font-medium text-center dark:text-gray-100'>Demo</span>
-              </a>
+              {demoLink && (
+                <a
+                  className='w-32 border border-black flex items-center px-2 dark:text-gray-100 dark:border-gray-600'
+                  href={demoLink}
+                  rel='noreferrer'
+                  target='_blank'
+                >
+                  <LinkIcon className='w-8 h-8' />
+                  <span className='w-full font-medium text-center dark:text-gray-100'>Demo</span>
+                </a>
+              )}
               {githubLink && (
                 <a
                   className='w-32 border border-black flex items-center dark:bg-gray-700'
