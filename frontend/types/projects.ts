@@ -1,7 +1,7 @@
 export interface IProjectTag {
   iconUrl: string;
   tag: string;
-  projectTaagId: string;
+  projectTagId: string;
 }
 
 export interface IProject {
@@ -11,4 +11,5 @@ export interface IProject {
   imageUrl: string;
   title: string;
   order?: number;
+  tags?: IProjectTag[];
 }

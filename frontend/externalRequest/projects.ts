@@ -12,7 +12,11 @@ const PROJECTS_QUERY = `
     githubLink,
     demoLink,
     "imageUrl": image["asset"]->["url"],
-    tags,
+    "tags": tags[]->{
+      "tag": tag[$lang],
+      "iconUrl": icon["asset"]->["url"],
+      "projectTagId": projectTagId["current"]
+    },
     order,
   }[$paginationNumber..($paginationNumber+${CMS_PAGINATION.end})] | order(order asc)
 `;
@@ -25,9 +29,9 @@ export default async function fetchProjects({
     const projects = await cmsRequest.fetch(PROJECTS_QUERY, { lang, paginationNumber });
 
     return cmsRequestResponse(projects, CMS_ENTRIES.PROJECTS, paginationNumber);
-  } catch ({ message }) {
+  } catch {
     // eslint-disable-next-line no-console
-    console.error('Projects CMS Request Failed:', message);
+    console.error('Projects CMS Request Failed');
 
     return { response: null, paginationNumber: null };
   }

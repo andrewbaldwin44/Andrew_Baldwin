@@ -44,9 +44,9 @@ export default function ProjectsPage({ locale, paginationNumber, projects }: IPr
 }
 
 export async function getStaticProps({ locale }: { locale: Locale }) {
-  const { response, paginationNumber } = await fetchProjects({ lang: locale });
+  const { response: projects, paginationNumber } = await fetchProjects({ lang: locale });
 
   return {
-    props: { projects: response, paginationNumber, locale },
+    props: { projects, paginationNumber, locale },
   };
 }
