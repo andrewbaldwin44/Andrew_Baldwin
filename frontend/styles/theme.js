@@ -13,6 +13,9 @@ const colors = {
 
   gray: tailwindcolors.gray,
 
+  blue: tailwindcolors.blue,
+  purple: tailwindcolors.violet,
+
   red: {
     DEFAULT: '#b30f00',
   },

@@ -1,11 +1,28 @@
+import { Locale } from 'next/dist/compiled/@vercel/og/satori';
+import Link from 'next/link';
+
 import GithubSvg from 'assets/github';
 import LinkedinSvg from 'assets/linkedin';
 import Layout from 'components/layout/layout.component';
 import SEO from 'components/seo';
 import TechnologyIcons from 'components/technology-icons/technology-icons.component';
+import fetchProjectTags from 'externalRequest/projectTags';
 import { useTranslations } from 'hooks/use-translations';
+import { IProjectTag } from 'types/projects';
 
-export default function HomePage() {
+export async function getStaticProps({ locale }: { locale: Locale }) {
+  const { response } = await fetchProjectTags({ lang: locale });
+
+  return {
+    props: { projectTags: response, locale },
+  };
+}
+
+interface IHomePage {
+  projectTags: IProjectTag[];
+}
+
+export default function HomePage({ projectTags }: IHomePage) {
   const { getTranslations } = useTranslations();
 
   return (
@@ -34,8 +51,16 @@ export default function HomePage() {
               <LinkedinSvg className='h-10 w-10 lg:h-12 lg:w-12' />
             </a>
           </div>
+          <div className='flex flex-col lg:flex-row mt-24 gap-4'>
+            <Link className='btn-solid-primary' href='/projects'>
+              About Me
+            </Link>
+            <Link className='btn-solid-secondary' href='/projects'>
+              See My Recent Projects
+            </Link>
+          </div>
         </div>
-        <TechnologyIcons />
+        <TechnologyIcons projectTags={projectTags} />
       </div>
     </Layout>
   );

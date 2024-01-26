@@ -13,9 +13,7 @@ export default function FourOhFour() {
         <SEO nofollow noindex seoTranslationKey='fourOhFour' />
         <h1>{getTranslations('fourOhFourPage.header')}</h1>
         <p>{getTranslations('fourOhFourPage.message')}</p>
-        <Link href='/' legacyBehavior>
-          {getTranslations('fourOhFourPage.backHome')}
-        </Link>
+        <Link href='/'>{getTranslations('fourOhFourPage.backHome')}</Link>
       </div>
     </Layout>
   );

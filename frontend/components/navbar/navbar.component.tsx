@@ -93,7 +93,7 @@ export default function Navbar() {
           className='navbar-links-wrapper container mx-auto flex justify-between items-center gap-x-2 p-3'
           style={{ height: 'var(--navbar-height)' }}
         >
-          <Link href='/' legacyBehavior passHref>
+          <Link href='/' passHref>
             <div className='flex cursor-pointer'>
               <Image
                 alt='Logo'

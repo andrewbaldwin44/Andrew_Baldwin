@@ -32,12 +32,7 @@ export default {
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [
-        {
-          title: 'Tag',
-          type: 'string',
-        },
-      ],
+      of: [{ type: 'reference', to: [{ type: 'projectTag', title: 'Project Tag' }] }],
     },
     {
       name: 'order',

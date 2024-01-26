@@ -29,8 +29,20 @@
     @apply py-2 border-2 font-semibold rounded transition-colors duration-150;
   }
 
-  .btn-red {
-    @apply text-red border-red hover:bg-red hover:text-white disabled:text-red disabled:bg-transparent;
+  .btn-primary {
+    @apply btn text-red border-red hover:bg-red hover:text-white disabled:text-red disabled:bg-transparent;
+  }
+
+  .btn-solid {
+    @apply rounded-lg py-4 px-5 text-white font-bold;
+  }
+
+  .btn-solid-primary {
+    @apply btn-solid bg-blue-600;
+  }
+
+  .btn-solid-secondary {
+    @apply btn-solid bg-gray-900;
   }
 }
 

@@ -3,11 +3,12 @@ import { useCallback } from 'react';
 import Layout from 'components/layout/layout.component';
 import useLoadMorePage from 'components/load-more-button/hooks/use-load-more-page.hook';
 import LoadMoreButton from 'components/load-more-button/load-more-button.component';
-import Projects, { IProject } from 'components/projects/projects.component';
+import Projects from 'components/projects/projects.component';
 import SEO from 'components/seo';
 import { PROJECTS_CONTROLLER } from 'externalRequest/controllers/projects';
 import fetchProjects from 'externalRequest/projects';
 import { Locale } from 'hooks/use-translations';
+import { IProject } from 'types/projects';
 
 interface IProjectsPage {
   projects: IProject[];
