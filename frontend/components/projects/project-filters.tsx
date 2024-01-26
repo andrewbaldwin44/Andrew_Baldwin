@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import cx from 'classnames';
 import { useRouter } from 'next/router';
 
 import FilterIcon from 'assets/filter';
@@ -22,6 +23,14 @@ export default function ProjectFilters({ projectTags }: IProjectFilters) {
 
   const filterMenuContainer: React.RefObject<HTMLDivElement> = useRef(null);
 
+  const filterMenuClasses = cx(
+    'absolute flex flex-col gap-y-4 py-6 px-12 bg-gray-900 rounded-lg shadow-lg top-12 right-0 border border-black',
+    {
+      block: isFilterMenuOpen,
+      hidden: !isFilterMenuOpen,
+    },
+  );
+
   useOnClickOutside(filterMenuContainer, () => setIsFilterMenuOpen(false), {
     shouldAddListeners: isFilterMenuOpen,
   });
@@ -29,6 +38,10 @@ export default function ProjectFilters({ projectTags }: IProjectFilters) {
   useEffect(() => {
     if (filtersFromQuery && !appliedFilters.length) {
       setAppliedFilters(Array.isArray(filtersFromQuery) ? filtersFromQuery : [filtersFromQuery]);
+    }
+
+    if (!filtersFromQuery && appliedFilters.length) {
+      setAppliedFilters([]);
     }
   }, [filtersFromQuery, appliedFilters]);
 
@@ -47,10 +60,8 @@ export default function ProjectFilters({ projectTags }: IProjectFilters) {
 
   const clearFilters = () => {
     Router.push({
-      pathname: '/projects',
+      query: '',
     });
-
-    setAppliedFilters([]);
   };
 
   return (
@@ -65,23 +76,22 @@ export default function ProjectFilters({ projectTags }: IProjectFilters) {
             title={getTranslations('projectsPage.filters')}
           />
         </button>
-        {isFilterMenuOpen && (
-          <div className='absolute flex flex-col gap-y-4 py-6 px-12 bg-gray-900 rounded-lg shadow-lg top-12 right-0 border border-black'>
-            {projectTags.map(({ tag, projectTagId }) => (
-              <div className='relative' key={`project-filter-${projectTagId}`}>
-                <label className='checkbox flex gap-x-4 dark:text-white whitespace-nowrap'>
-                  <input
-                    defaultChecked={appliedFilters.includes(projectTagId)}
-                    onClick={() => onToggleFilter(projectTagId)}
-                    type='checkbox'
-                  />
-                  {tag}
-                  <span className='checkmark'></span>
-                </label>
-              </div>
-            ))}
-          </div>
-        )}
+
+        <div className={filterMenuClasses}>
+          {projectTags.map(({ tag, projectTagId }) => (
+            <div className='relative' key={`project-filter-${projectTagId}`}>
+              <label className='checkbox flex gap-x-4 dark:text-white whitespace-nowrap'>
+                <input
+                  checked={appliedFilters.includes(projectTagId)}
+                  onChange={() => onToggleFilter(projectTagId)}
+                  type='checkbox'
+                />
+                {tag}
+                <span className='checkmark'></span>
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
