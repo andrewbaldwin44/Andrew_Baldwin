@@ -65,7 +65,7 @@ export default function ProjectFilters({ projectTags }: IProjectFilters) {
   };
 
   return (
-    <div className='flex justify-between w-40 ml-auto' ref={filterMenuContainer}>
+    <div className='flex justify-end gap-x-6' ref={filterMenuContainer}>
       <button className='link whitespace-nowrap' onClick={clearFilters}>
         {getTranslations('projectsPage.clearFilters')}
       </button>
