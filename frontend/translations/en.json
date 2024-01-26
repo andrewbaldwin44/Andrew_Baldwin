@@ -29,6 +29,10 @@
   "testimonialsPage": {
     "signature": "- @<%= student %> on <%= exercise %>"
   },
+  "projectsPage": {
+    "filters": "Filter Projects",
+    "clearFilters": "Clear Filters"
+  },
   "contactPage": {
     "header": "Send Me a Message!",
     "name": "Name:",

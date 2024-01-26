@@ -1,12 +1,20 @@
 import cx from 'classnames';
+import { useRouter } from 'next/router';
 
 import { IProjectTag } from 'types/projects';
 
-interface IProjectTagIcon extends Pick<IProjectTag, 'iconUrl' | 'tag'> {
+interface IProjectTagIcon extends IProjectTag {
   size?: 'small' | 'default';
 }
 
-export default function ProjectTagIcon({ iconUrl, tag, size = 'default' }: IProjectTagIcon) {
+export default function ProjectTagIcon({
+  iconUrl,
+  projectTagId,
+  tag,
+  size = 'default',
+}: IProjectTagIcon) {
+  const Router = useRouter();
+
   const containerClasses = cx('duration-200 transition-transform hover:scale-125', {
     'p-2 md:p-4 lg:p-8': size === 'default',
     'p-2': size === 'small',
@@ -17,8 +25,14 @@ export default function ProjectTagIcon({ iconUrl, tag, size = 'default' }: IProj
     'h-8 w-8': size === 'small',
   });
 
+  const onIconClick = () =>
+    Router.push({
+      pathname: '/projects',
+      query: { filters: projectTagId },
+    });
+
   return (
-    <div className={containerClasses}>
+    <div className={containerClasses} onClick={onIconClick} role='link'>
       <div
         className={iconClasses}
         role='img'

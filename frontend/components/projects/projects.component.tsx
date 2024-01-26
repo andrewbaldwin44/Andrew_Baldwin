@@ -3,14 +3,18 @@ import LinkIcon from 'assets/link';
 import ProjectTagIcon from 'components/project-tag-icon/project-tag-icon';
 import { IProject } from 'types/projects';
 
+import useFilterProjects from './use-filter-projects';
+
 interface IProjects {
   projects: IProject[];
 }
 
 export default function Projects({ projects }: IProjects) {
+  const { projectsToDisplay } = useFilterProjects({ projects });
+
   return (
     <div className='flex flex-wrap md:grid grid-cols-2 lg:grid-cols-3 gap-x-10'>
-      {projects.map(
+      {projectsToDisplay.map(
         ({ title, imageUrl, githubLink, demoLink, description, tags }, index: number) => (
           <div
             className='w-full max-h-full my-10 border border-gray-300 shadow-lg rounded pb-6 lg:flex lg:flex-col'
@@ -33,9 +37,9 @@ export default function Projects({ projects }: IProjects) {
               <div>
                 <div className='flex flex-wrap justify-center mb-8'>
                   {tags &&
-                    tags.map(({ projectTagId, ...props }) => (
+                    tags.map(props => (
                       <ProjectTagIcon
-                        key={`project-tags-${projectTagId}`}
+                        key={`project-tags-${props.projectTagId}`}
                         size='small'
                         {...props}
                       />
