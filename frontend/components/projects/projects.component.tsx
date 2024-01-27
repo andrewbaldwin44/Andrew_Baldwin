@@ -21,7 +21,7 @@ export default function Projects({ projects }: IProjects) {
             key={`project-${index}`}
           >
             <div
-              className='w-full min-w-full h-52 lg:h-80 bg-cover bg-no-repeat bg-center rounded-t'
+              className='w-full min-w-full h-52 lg:h-80 bg-cover bg-no-repeat bg-center rounded-t shadow-sm'
               style={{ backgroundImage: `url("${imageUrl}")` }}
             />
             <div className='px-6 py-4 lg:px-8 xl:px-14 lg:flex lg:flex-col lg:flex-1 lg:justify-between'>

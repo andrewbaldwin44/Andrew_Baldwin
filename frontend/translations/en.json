@@ -45,8 +45,8 @@
     "emailSentThanks": "Thanks for reaching out!"
   },
   "fourOhFourPage": {
-    "header": "404: Page Not Found",
-    "message": "You just hit a route that doesn't exist... the sadness",
+    "header": "404",
+    "message": "Sorry, this page could not be found",
     "backHome": "Go Back Home"
   },
   "assets": {

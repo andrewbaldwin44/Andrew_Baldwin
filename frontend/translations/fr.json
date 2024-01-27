@@ -45,8 +45,8 @@
     "emailSentThanks": "Merci de m'avoir contacté !"
   },
   "fourOhFourPage": {
-    "header": "404: Page non trouvée",
-    "message": "Vous se trouve sur une route qui n'existe pas... la tristesse",
+    "header": "404",
+    "message": "Désolé, vous se trouve sur une route qui n'existe pas",
     "backHome": "Retourner à l'accueil"
   },
   "assets": {

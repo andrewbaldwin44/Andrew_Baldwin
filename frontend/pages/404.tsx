@@ -9,11 +9,13 @@ export default function FourOhFour() {
 
   return (
     <Layout>
-      <div className='dark:text-gray-100'>
-        <SEO nofollow noindex seoTranslationKey='fourOhFour' />
-        <h1>{getTranslations('fourOhFourPage.header')}</h1>
+      <SEO nofollow noindex seoTranslationKey='fourOhFour' />
+      <div className='h-screen-available flex flex-col items-center justify-center dark:text-gray-100'>
+        <h1 className='text-8xl mb-4'>{getTranslations('fourOhFourPage.header')}</h1>
         <p>{getTranslations('fourOhFourPage.message')}</p>
-        <Link href='/'>{getTranslations('fourOhFourPage.backHome')}</Link>
+        <Link className='link' href='/'>
+          {getTranslations('fourOhFourPage.backHome')}
+        </Link>
       </div>
     </Layout>
   );
