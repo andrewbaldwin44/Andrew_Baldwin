@@ -24,7 +24,8 @@
   },
   "homePage": {
     "header": "Bonjour je suis",
-    "subheader": "Développeur Web Full-Stack"
+    "subheader": "Développeur Web Full-Stack",
+    "recentProjects": "Voir mes derniers projets"
   },
   "testimonialsPage": {
     "signature": "- @<%= student %> sur <%= exercise %>"

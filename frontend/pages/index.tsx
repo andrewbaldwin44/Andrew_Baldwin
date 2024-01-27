@@ -52,11 +52,11 @@ export default function HomePage({ projectTags }: IHomePage) {
             </a>
           </div>
           <div className='flex flex-col lg:flex-row mt-24 gap-4'>
-            {/* <Link className='btn-solid-primary' href='/projects'>
+            {/* <Link className='btn-solid-primary' href='/about'>
               About Me
             </Link> */}
             <Link className='btn-solid-secondary' href='/projects'>
-              See My Recent Projects
+              {getTranslations('homePage.recentProjects')}
             </Link>
           </div>
         </div>
