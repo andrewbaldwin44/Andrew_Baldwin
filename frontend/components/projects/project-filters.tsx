@@ -33,7 +33,7 @@ export default function ProjectFilters({ projectTags }: IProjectFilters) {
   const filterMenuContainer: React.RefObject<HTMLDivElement> = useRef(null);
 
   const filterMenuClasses = cx(
-    'absolute flex flex-col gap-y-4 py-6 px-12 bg-gray-900 rounded-lg shadow-lg top-12 right-0 border border-black',
+    'absolute flex flex-col gap-y-4 py-6 px-12 bg-white dark:bg-gray-900 rounded-lg shadow-lg top-12 right-0 border border-black',
     {
       block: isFilterMenuOpen,
       hidden: !isFilterMenuOpen,
