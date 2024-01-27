@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import cx from 'classnames';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 
 import FilterIcon from 'assets/filter';
 import useOnClickOutside from 'hooks/use-on-click-outside';
@@ -11,15 +11,24 @@ interface IProjectFilters {
   projectTags: IProjectTag[];
 }
 
+const getAppliedFiltersFromQuery = ({ query }: NextRouter) => {
+  const filters = query.filters;
+
+  if (!filters) {
+    return [];
+  }
+
+  return Array.isArray(filters) ? filters : [filters];
+};
+
 export default function ProjectFilters({ projectTags }: IProjectFilters) {
   const { getTranslations } = useTranslations();
 
   const Router = useRouter();
 
-  const filtersFromQuery = Router.query && Router.query.filters;
+  const appliedFilters = getAppliedFiltersFromQuery(Router);
 
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
-  const [appliedFilters, setAppliedFilters] = useState<string[]>([]);
 
   const filterMenuContainer: React.RefObject<HTMLDivElement> = useRef(null);
 
@@ -35,27 +44,14 @@ export default function ProjectFilters({ projectTags }: IProjectFilters) {
     shouldAddListeners: isFilterMenuOpen,
   });
 
-  useEffect(() => {
-    if (filtersFromQuery && !appliedFilters.length) {
-      setAppliedFilters(Array.isArray(filtersFromQuery) ? filtersFromQuery : [filtersFromQuery]);
-    }
-
-    if (!filtersFromQuery && appliedFilters.length) {
-      setAppliedFilters([]);
-    }
-  }, [filtersFromQuery, appliedFilters]);
-
   const onToggleFilter = (filter: string) => {
     const newAppliedFilters = appliedFilters.includes(filter)
       ? appliedFilters.filter(f => filter !== f)
       : [...appliedFilters, filter];
 
     Router.push({
-      pathname: '/projects',
       query: { filters: newAppliedFilters },
     });
-
-    setAppliedFilters(newAppliedFilters);
   };
 
   const clearFilters = () => {
