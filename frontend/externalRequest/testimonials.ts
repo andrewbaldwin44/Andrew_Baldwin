@@ -11,6 +11,8 @@ const TESTIMONIALS_QUERY = `
     "studentImage": studentImage["asset"]->["url"],
     feedback,
     exercise,
+    link,
+    source,
   }[$paginationNumber..($paginationNumber+${CMS_PAGINATION.end})]
 `;
 

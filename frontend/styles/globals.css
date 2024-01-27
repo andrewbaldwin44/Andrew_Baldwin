@@ -25,6 +25,10 @@
     height: calc(100vh - var(--navbar-height) - (2 * var(--layout-vertical-padding)));
   }
 
+  .scale-101 {
+    transform: scale(1.01);
+  }
+
   .btn {
     @apply py-2 border-2 font-semibold rounded transition-colors duration-150;
   }
