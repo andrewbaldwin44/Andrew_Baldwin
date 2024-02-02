@@ -25,6 +25,7 @@
   "homePage": {
     "header": "Hello, I'm",
     "subheader": "Full Stack Web Developer",
+    "aboutMe": "About Me",
     "recentProjects": "See My Recent Projects"
   },
   "testimonialsPage": {

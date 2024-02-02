@@ -5,7 +5,7 @@ import cmsRequest, {
   CMS_PAGINATION,
 } from 'externalRequest/cmsRequest';
 
-const PROJECT_TAGS_QUERY = `
+export const PROJECT_TAGS_QUERY = `
     *[_type == "projectTag"] {
         "tag": tag[$lang],
         "iconUrl": icon["asset"]->["url"],

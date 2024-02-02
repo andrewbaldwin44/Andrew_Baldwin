@@ -25,6 +25,7 @@
   "homePage": {
     "header": "Bonjour je suis",
     "subheader": "Développeur Web Full-Stack",
+    "aboutMe": "À propos de moi",
     "recentProjects": "Voir mes derniers projets"
   },
   "testimonialsPage": {

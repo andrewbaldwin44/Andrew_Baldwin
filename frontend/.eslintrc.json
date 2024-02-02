@@ -30,7 +30,7 @@
             "group": "internal"
           },
           {
-            "pattern": "{assets,components,externalRequest,hooks,pages,styles,translations,types,utils}/**",
+            "pattern": "{assets,components,externalRequest,hooks,pages,public,styles,translations,types,utils}/**",
             "group": "internal"
           }
         ],

@@ -64,6 +64,8 @@ export default function Projects({ projects }: IProjects) {
                     <a
                       className='w-32 border border-black flex items-center dark:bg-gray-700'
                       href={githubLink}
+                      rel='noreferrer'
+                      target='_blank'
                     >
                       <GithubIcon className='w-8 h-8 mx-1 text-black-600 dark:text-gray-100' />
                       <span className='text-white bg-black w-full font-medium p-2 text-center'>
