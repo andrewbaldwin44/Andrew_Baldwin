@@ -35,7 +35,7 @@ export default function HomePage({ projectTags, content }: IHomepage) {
   return (
     <Layout hasGutter={false}>
       <SEO seoTranslationKey='home' />
-      <div className='overflow-x-hidden relative h-screen-available w-screen pt-container lg:pt-0 lg:flex lg:justify-between lg:items-center'>
+      <div className='relative h-screen-available w-screen pt-container lg:pt-0 lg:flex lg:justify-between lg:items-center'>
         <div className='container mx-auto flex flex-col text-center items-center lg:items-start lg:text-left lg:min-w-content'>
           <h2 className='text-lg lg:text-2xl dark:text-gray-500'>
             {getTranslations('homePage.header')}

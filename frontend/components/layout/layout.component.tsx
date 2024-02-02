@@ -8,14 +8,15 @@ interface ILayout {
 }
 
 export default function Layout({ children, hasGutter = true }: ILayout) {
-  const layoutClasses = cx('container ', {
+  const layoutClasses = cx('container', {
     'px-3 mx-auto py-container': hasGutter,
   });
 
   return (
-    <>
+    <div className='overflow-x-hidden'>
       <Header />
+
       <main className={layoutClasses}>{children}</main>
-    </>
+    </div>
   );
 }
