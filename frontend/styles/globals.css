@@ -37,6 +37,14 @@
     height: calc(100vh - var(--navbar-height-sticky));
   }
 
+  .force-hidden {
+    display: none !important;
+  }
+
+  .force-flex {
+    display: flex !important;
+  }
+
   .scale-101 {
     transform: scale(1.01);
   }
@@ -176,6 +184,11 @@ body {
   --navbar-height: 60px;
   --navbar-height-sticky: 50px;
   --layout-vertical-padding: 2rem;
+  --swiper-theme-color: black !important;
+}
+
+.dark {
+  --swiper-theme-color: white !important;
 }
 
 .dark input,

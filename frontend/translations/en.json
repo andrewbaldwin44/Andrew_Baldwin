@@ -22,11 +22,12 @@
       { "href": "/contact", "text": "Contact" }
     ]
   },
-  "homePage": {
+  "homepage": {
     "header": "Hello, I'm",
     "subheader": "Full Stack Web Developer",
     "aboutMe": "About Me",
-    "recentProjects": "See My Recent Projects"
+    "recentProjects": "See My Recent Projects",
+    "testimonialsViewAll": "View All Testimonials"
   },
   "testimonialsPage": {
     "signature": "- @<%= student %> on <%= exercise %>"

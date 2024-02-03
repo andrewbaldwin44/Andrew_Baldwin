@@ -7,6 +7,18 @@ const HOMEPAGE_QUERY = `
     "header": header[$lang],
     "body": body[$lang],
   }[0],
+  "featuredTestimonials": *[_type == "featuredTestimonials"] {
+    "header": header[$lang],
+    "body": body[$lang],
+    "testimonials": testimonials[]-> {
+      student,
+      "studentImage": studentImage["asset"]->["url"],
+      feedback,
+      exercise,
+      link,
+      source,
+    }
+  }[0],
   "projectTags": ${PROJECT_TAGS_QUERY}
 }
   `;
