@@ -176,6 +176,10 @@
   }
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
   @apply text-black-500 dark:bg-gray-800;
 }

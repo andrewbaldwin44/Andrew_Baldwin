@@ -86,12 +86,13 @@ export default function Homepage({ content, featuredTestimonials, projectTags }:
           />
         </div>
       </div>
-      <div className='w-screen bg-gray-100 py-container md:h-sticky-screen-available lg:py-0 dark:bg-stone-800'>
+      <div
+        className='w-screen bg-gray-100 py-container md:h-sticky-screen-available lg:py-0 dark:bg-stone-800'
+        id='about-me'
+      >
         <div className='container mx-auto px-3 h-full lg:flex lg:justify-between lg:items-center relative'>
           <div className='flex flex-col gap-y-6 text-justify lg:w-1/2'>
-            <h2 className='text-4xl font-bold lg:text-5xl dark:text-gray-100' id='about-me'>
-              {content.header}
-            </h2>
+            <h2 className='text-4xl font-bold lg:text-5xl dark:text-gray-100'>{content.header}</h2>
             <Markdown content={content.body} />
           </div>
           <TechnologyIcons projectTags={projectTags} />
