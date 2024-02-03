@@ -35,7 +35,7 @@ export default function HomePage({ projectTags, content }: IHomepage) {
   return (
     <Layout hasGutter={false}>
       <SEO seoTranslationKey='home' />
-      <div className='relative h-screen-available w-screen pt-container lg:pt-0 lg:flex lg:justify-between lg:items-center'>
+      <div className='relative min-h-screen-available flex flex-col justify-between lg:h-screen-available w-screen pt-container lg:pt-0 lg:flex-row lg:items-center'>
         <div className='container mx-auto flex flex-col text-center items-center lg:items-start lg:text-left lg:min-w-content'>
           <h2 className='text-lg lg:text-2xl dark:text-gray-500'>
             {getTranslations('homePage.header')}
@@ -67,7 +67,7 @@ export default function HomePage({ projectTags, content }: IHomepage) {
             </Link>
           </div>
         </div>
-        <div className='absolute bottom-0 w-full h-1/2 lg:w-2/3 lg:-right-64 lg:h-screen-available'>
+        <div className='relative mt-auto w-full h-96 lg:mt-0 lg:h-1/2 lg:absolute lg:w-2/3 lg:-right-64 lg:h-screen-available'>
           <Image
             alt=''
             fill

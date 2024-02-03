@@ -13,10 +13,11 @@ export default function Layout({ children, hasGutter = true }: ILayout) {
   });
 
   return (
-    <div className='overflow-x-hidden'>
+    <>
       <Header />
-
-      <main className={layoutClasses}>{children}</main>
-    </div>
+      <div className='overflow-x-hidden'>
+        <main className={layoutClasses}>{children}</main>
+      </div>
+    </>
   );
 }

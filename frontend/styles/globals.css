@@ -25,6 +25,10 @@
     padding-bottom: var(--layout-vertical-padding);
   }
 
+  .min-h-screen-available {
+    min-height: calc(100vh - var(--navbar-height));
+  }
+
   .h-screen-available {
     height: calc(100vh - var(--navbar-height));
   }
