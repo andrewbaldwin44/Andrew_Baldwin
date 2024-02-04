@@ -90,7 +90,7 @@ export default function ContactForm() {
               />
             </label>
             <button
-              className='btn-primary flex items-center justify-center w-full h-12 md:w-64 gap-x-6 mx-auto'
+              className='btn-primary flex items-center justify-center w-full h-14 md:w-64 gap-x-6 mx-auto'
               type='submit'
             >
               {hasFormSubmitted ? (

@@ -11,6 +11,7 @@ import styles from 'components/navbar/navbar.module.css';
 import useOnClickOutside from 'hooks/use-on-click-outside';
 import useStickyElement from 'hooks/use-sticky-element';
 import { useTranslations } from 'hooks/use-translations';
+import Logo from 'public/logo.png';
 
 interface INavLink {
   children: React.ReactChild;
@@ -96,10 +97,12 @@ export default function Navbar() {
           <Link href='/' passHref>
             <div className='flex cursor-pointer'>
               <Image
-                alt='Logo'
+                alt=''
                 height={isNavbarSticky ? 30 : 40}
                 loading='eager'
-                src='/logo.png'
+                placeholder='blur'
+                priority
+                src={Logo}
                 width={isNavbarSticky ? 30 : 40}
               />
             </div>
