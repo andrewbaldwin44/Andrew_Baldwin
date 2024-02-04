@@ -45,13 +45,13 @@ export default function Homepage({ content, featuredTestimonials, projectTags }:
       <SEO seoTranslationKey='home' />
       <div className='relative min-h-screen-available flex flex-col justify-between lg:h-screen-available w-screen pt-container lg:pt-0 lg:flex-row lg:items-center'>
         <div className='container mx-auto flex flex-col text-center items-center lg:items-start lg:text-left lg:min-w-content'>
-          <h2 className='text-lg lg:text-2xl dark:text-gray-500'>
+          <h2 className='text-lg lg:text-2xl dark:text-gray-400'>
             {getTranslations('homepage.header')}
           </h2>
           <h1 className='text-4xl font-bold mb-2 lg:text-5xl lg:my-2 dark:text-gray-100'>
             Andrew Baldwin
           </h1>
-          <h2 className='text-lg lg:text-2xl dark:text-gray-500'>
+          <h2 className='text-lg lg:text-2xl dark:text-gray-400'>
             {getTranslations('homepage.subheader')}
           </h2>
           <div className='flex justify-center gap-x-6 mt-8 lg:justify-start'>
@@ -67,10 +67,10 @@ export default function Homepage({ content, featuredTestimonials, projectTags }:
             </a>
           </div>
           <div className='flex flex-col mt-12 gap-4 lg:flex-row'>
-            <Link className='btn-solid-primary' href='#about-me'>
+            <Link className='btn-tertiary' href='#about-me'>
               {getTranslations('homepage.aboutMe')}
             </Link>
-            <Link className='btn-solid-secondary' href='/projects'>
+            <Link className='btn-secondary' href='/projects'>
               {getTranslations('homepage.recentProjects')}
             </Link>
           </div>
