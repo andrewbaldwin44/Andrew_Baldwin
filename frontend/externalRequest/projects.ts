@@ -6,19 +6,20 @@ import cmsRequest, {
 } from 'externalRequest/cmsRequest';
 
 const PROJECTS_QUERY = `
-  *[_type == "project"] {
-    "title": title[$lang],
-    "description": description[$lang],
-    githubLink,
-    demoLink,
-    "imageUrl": image["asset"]->["url"],
-    "tags": tags[]->{
-      "tag": tag[$lang],
-      "iconUrl": icon["asset"]->["url"],
-      "projectTagId": projectTagId["current"]
-    },
-    order,
-  }[$paginationNumber..($paginationNumber+${CMS_PAGINATION.end})] | order(order asc)
+  *[_type == "orderedProjects"] {
+    "projects": projects[]->{
+      "title": title[$lang],
+      "description": description[$lang],
+      githubLink,
+      demoLink,
+      "imageUrl": image["asset"]->["url"],
+      "tags": tags[]->{
+        "tag": tag[$lang],
+        "iconUrl": icon["asset"]->["url"],
+        "projectTagId": projectTagId["current"]
+      },
+    }[$paginationNumber..($paginationNumber+${CMS_PAGINATION.end})]
+  }[0]
 `;
 
 export default async function fetchProjects({
@@ -26,7 +27,7 @@ export default async function fetchProjects({
   paginationNumber = CMS_PAGINATION.start,
 }: ICmsRequestVariables) {
   try {
-    const projects = await cmsRequest.fetch(PROJECTS_QUERY, { lang, paginationNumber });
+    const { projects } = await cmsRequest.fetch(PROJECTS_QUERY, { lang, paginationNumber });
 
     return cmsRequestResponse(projects, CMS_ENTRIES.PROJECTS, paginationNumber);
   } catch {

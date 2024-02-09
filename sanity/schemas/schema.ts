@@ -10,6 +10,7 @@ import project from './project';
 import projectTag from './projectTag';
 import testimonial from './testimonial';
 import featuredTestimonials from './featuredTestimonials';
+import orderedProjects from './orderedProjects';
 
 export default createSchema({
   name: 'default',
@@ -19,6 +20,7 @@ export default createSchema({
     localeMarkdown,
     content,
     featuredTestimonials,
+    orderedProjects,
     project,
     projectTag,
     testimonial,

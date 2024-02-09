@@ -34,11 +34,6 @@ export default {
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'projectTag', title: 'Project Tag' }] }],
     },
-    {
-      name: 'order',
-      title: 'Order',
-      type: 'number',
-    },
   ],
   preview: {
     select: {
